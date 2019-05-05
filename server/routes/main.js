@@ -3,7 +3,7 @@
 //Including the required packages and assigning it to Local Variables
 const router = require('express').Router();
 const async = require('async');
-const stripe = require('stripe')('sk_test_wkcPYTXmqh2Y1Qayai7cW1Bk');
+const stripe = require('stripe')('sk_test_REBXB5E29UK5h0Rjbf02CrO9');
 
 const Category = require('../models/category');
 const Product = require('../models/product');
