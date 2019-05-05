@@ -7,7 +7,7 @@ const Product = require('../models/product');
 const aws = require('aws-sdk');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
-const s3 = new aws.S3({ accessKeyId: "yourAccessKeyId", secretAccessKey: "yourSecretAccessKey" });
+const s3 = new aws.S3({ accessKeyId: "AKIARBCQX62VKRZPXQPT", secretAccessKey: "T/y7kkXTJhTon4bOL2GG/QFGRrHbH4DuBhYxfS1D" });
 
 const faker = require('faker');
 
@@ -18,6 +18,7 @@ var upload = multer({
   storage: multerS3({
     s3: s3,
     bucket: 'agro-spice-food-packers',
+    acl: 'public-read',
     metadata: function (req, file, cb) {
       cb(null, {fieldName: file.fieldname});
     },
