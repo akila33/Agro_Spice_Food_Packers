@@ -7,7 +7,7 @@ const Product = require('../models/product');
 const aws = require('aws-sdk');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
-const s3 = new aws.S3({ accessKeyId: "AKIARBCQX62VKRZPXQPT", secretAccessKey: "T/y7kkXTJhTon4bOL2GG/QFGRrHbH4DuBhYxfS1D" });
+const s3 = new aws.S3({ accessKeyId: "xxx", secretAccessKey: "yyy" });
 
 const faker = require('faker');
 
