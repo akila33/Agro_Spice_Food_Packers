@@ -13,6 +13,8 @@ const Order = require('../models/order');
 
 const checkJWT = require('../middlewares/check-jwt');
 
+//Get My Email details
+details=require('../details.json');
 
 //Function to facilitate obtaining the product information 
 router.get('/products', (req, res, next) => {
@@ -228,7 +230,7 @@ async function sendMail(user,callback){
   });
 
   let mailOptions={
-    from:'"Agro_Spice_Food_Packers"',//sender address
+    from:'"Agro Spicy Food Packers"<agrospicy.gmail.com>',//sender address
     to:user.email, //reciever
     subject:"Order Details",
     html: `<h2>Hey ${user.name}</h2><br/>
