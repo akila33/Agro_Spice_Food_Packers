@@ -4,6 +4,7 @@
 const router = require('express').Router();
 const async = require('async');
 const stripe = require('stripe')('sk_test_REBXB5E29UK5h0Rjbf02CrO9');
+const nodemailer=require('nodemailer');
 
 const Category = require('../models/category');
 const Product = require('../models/product');
@@ -207,6 +208,37 @@ router.post('/payment', checkJWT, (req, res, next) => {
     });
 });
 
+router.post("/sendMail",(req,res)=>{
+  let user=req.body;
+  sendMail(user,info=>{
+    console.log("The Notification has been send success!");
+    res.send(info);
+  });
+});
+
+async function sendMail(user,callback){
+  let transporter = nodemailer.createTransport({
+    host:"smtp.gmail.com",
+    port: 587,
+    secure:false,
+    auth:{
+      user:details.email,
+      pass:details.password
+    }
+  });
+
+  let mailOptions={
+    from:'"Agro_Spice_Food_Packers"',//sender address
+    to:user.email, //reciever
+    subject:"Order Details",
+    html: `<h2>Hey ${user.name}</h2><br/>
+    <h4>Thans you for shopping with us!</h4>`
+  }
+
+  let info=await transporter.sendMail(mailOptions);
+
+  callback(info);
+}
  
 //Exporting the module 
 module.exports = router;
