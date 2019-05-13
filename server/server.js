@@ -8,7 +8,6 @@ const bodyParser = require('body-parser');         //body-parser to parse the JS
 const mongoose = require('mongoose');              //Mongoose package to connect to back-end mongoDB
 const cors = require('cors');                      //Package to connect middle-ware or cross-platform applications
 const config = require('./config');
-const nodemailer=require('nodemailer');
 
 const app = express();                              //wrapping the new express application in app variable 
 
