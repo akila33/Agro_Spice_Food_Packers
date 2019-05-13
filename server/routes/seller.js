@@ -7,7 +7,7 @@ const Product = require('../models/product');
 const aws = require('aws-sdk');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
-const s3 = new aws.S3({ accessKeyId: "xxx", secretAccessKey: "yyy" });
+const s3 = new aws.S3({ accessKeyId: "", secretAccessKey: "" });
 
 const faker = require('faker');
 
@@ -53,6 +53,7 @@ router.route('/products')
     product.category = req.body.categoryId;
     product.title = req.body.title;
     product.price = req.body.price;
+    product.quantity = req.body.quantity;
     product.description = req.body.description;
     product.image = req.file.location;
     product.save();
@@ -72,6 +73,7 @@ router.get('/faker/test',(req, res, next) => {
     product.title = faker.commerce.productName();
     product.description = faker.lorem.words();
     product.price = faker.commerce.price();
+    product.quantity = faker.commerce.quantity();
     product.save();
   }
 
