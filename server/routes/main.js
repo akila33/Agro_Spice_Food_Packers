@@ -3,8 +3,7 @@
 //Including the required packages and assigning it to Local Variables
 const router = require('express').Router();
 const async = require('async');
-const stripe = require('stripe')('sk_test_REBXB5E29UK5h0Rjbf02CrO9');
-const nodemailer=require('nodemailer');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const Category = require('../models/category');
 const Product = require('../models/product');
@@ -13,8 +12,6 @@ const Order = require('../models/order');
 
 const checkJWT = require('../middlewares/check-jwt');
 
-//Get My Email details
-details=require('../details.json');
 
 //Function to facilitate obtaining the product information 
 router.get('/products', (req, res, next) => {
@@ -175,7 +172,8 @@ router.route('/categories')
 //Function to facilitate payment functionality  using STRIPE API 
 router.post('/payment', checkJWT, (req, res, next) => {
   const stripeToken = req.body.stripeToken;
-  const currentCharges = Math.round(req.body.totalPrice * 100);
+  const currentCharges = Math.round(req.body.totalPrice);
+  //const currentCharges = Math.round(req.body.totalPrice * 100);
 
   stripe.customers
     .create({
@@ -210,37 +208,6 @@ router.post('/payment', checkJWT, (req, res, next) => {
     });
 });
 
-router.post("/sendMail",(req,res)=>{
-  let user=req.body;
-  sendMail(user,info=>{
-    console.log("The Notification has been send success!");
-    res.send(info);
-  });
-});
-
-async function sendMail(user,callback){
-  let transporter = nodemailer.createTransport({
-    host:"smtp.gmail.com",
-    port: 587,
-    secure:false,
-    auth:{
-      user:details.email,
-      pass:details.password
-    }
-  });
-
-  let mailOptions={
-    from:'"Agro Spicy Food Packers"<agrospicy.gmail.com>',//sender address
-    to:user.email, //reciever
-    subject:"Order Details",
-    html: `<h2>Hey ${user.name}</h2><br/>
-    <h4>Thans you for shopping with us!</h4>`
-  }
-
-  let info=await transporter.sendMail(mailOptions);
-
-  callback(info);
-}
  
 //Exporting the module 
 module.exports = router;
