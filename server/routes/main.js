@@ -1,8 +1,12 @@
 //main.JS file to facilitate REST services for Products,Categories, Review and payment functionality  
+// import {} from 'dotenv/config';
+// dotenv.config();
 
+require('dotenv').config({path: 'C:/node/Agro_Spice_Food_Packers' + '/.env'});
 //Including the required packages and assigning it to Local Variables
 const router = require('express').Router();
 const async = require('async');
+//console.log("aaa");
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const Category = require('../models/category');

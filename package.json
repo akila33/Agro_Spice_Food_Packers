@@ -1,0 +1,22 @@
+{
+  "name": "agro_spice_food_packers",
+  "version": "1.0.0",
+  "description": "Agro Spice Food Packers web application using Angular | Node.js | Express.js | MongoDB (MEAN Stack)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akila33/Agro_Spice_Food_Packers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akila33/Agro_Spice_Food_Packers/issues"
+  },
+  "homepage": "https://github.com/akila33/Agro_Spice_Food_Packers#readme",
+  "devDependencies": {
+    "dotenv": "^8.0.0"
+  }
+}

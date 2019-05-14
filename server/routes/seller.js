@@ -1,5 +1,5 @@
 // Seller.JS file to maintain every sellers details and storing the resources on AWS 
-
+require('dotenv').config({path: 'C:/node/Agro_Spice_Food_Packers' + '/.env'});
 //Including the required packages and assigning it to Local Variables
 const router = require('express').Router();
 const Product = require('../models/product');
@@ -7,7 +7,7 @@ const Product = require('../models/product');
 const aws = require('aws-sdk');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
-const s3 = new aws.S3({ accessKeyId: AWS_ACCESS_KEY_ID, secretAccessKey: AWS_SECRET_ACCESS_KEY });
+const s3 = new aws.S3({ accessKeyId: process.env.AWS_ACCESS_KEY_ID, secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY});
 
 const faker = require('faker');
 
