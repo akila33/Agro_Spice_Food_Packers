@@ -7,6 +7,8 @@ import { environment } from '../../environments/environment';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
 import { Router } from '@angular/router';
+import { NotificationsService } from '../notifications.service';
+import { Validators, FormBuilder } from '@angular/forms';
 
 //componnet files specifications 
 @Component({
@@ -26,7 +28,23 @@ export class CartComponent implements OnInit {
     private data: DataService,
     private rest: RestApiService,
     private router: Router,
+    private notificationService : NotificationsService,
+    private fb: FormBuilder
   ) {}
+
+  userProfile:any;
+  
+  infoForm = this.fb.group({
+    name: ['',[
+      Validators.required,
+    ]],
+    email: ['',[
+      Validators.required,
+    ]]
+    
+  });
+  get name() { return this.infoForm.get('name'); }
+  get email() { return this.infoForm.get('email'); }
 
   trackByCartItems(index: number, item: any) {
     return item._id;
@@ -53,6 +71,9 @@ export class CartComponent implements OnInit {
     this.cartItems.forEach(data => {
       this.quantities.push(1);
     });
+    
+    this.userProfile=JSON.parse(localStorage.getItem('userProfile'));
+    console.log(this.userProfile);
     this.handler = StripeCheckout.configure({
       key: environment.stripeKey,
       image: 'assets/img/logo.png',
@@ -66,7 +87,6 @@ export class CartComponent implements OnInit {
             quantity: this.quantities[index],
           });
         });
-
         try {
           const data = await this.rest.post(
             'http://localhost:3030/api/payment',
@@ -104,6 +124,16 @@ export class CartComponent implements OnInit {
   }
 
   checkout() {
+    //console.log(this.infoForm.value);
+    this.notificationService.sendEmail(this.infoForm.value).
+    subscribe(data => {
+      let msg = "Notification Sent to Email!"
+      alert(msg);
+      // console.log(data, "success");
+    }, error => {
+      console.error(error, "error");
+    });
+
     this.btnDisabled = true;
     try {
       if (this.validate()) {
