@@ -46,7 +46,11 @@ export class DataService {
           'http://localhost:3030/api/accounts/profile',
         );
         this.user = data['user'];
-        console.log(this.user);
+        let userPro={
+          name:this.user['name'],
+          email:this.user['email']
+        }
+        localStorage.setItem('userProfile',JSON.stringify(userPro));
       }
     } catch (e) {
       this.error(e);

@@ -52,13 +52,19 @@
       </div>
       <div class="col-md-3">
         <div class="card bg-light">
+
           <div class="card-body">
+          <form [formGroup]="infoForm">
+            <input style="visibility: hidden" type="text" readonly [(ngModel)]="userProfile.name" id="nameInp" formControlName="name">
+            <input style="visibility: hidden" type="text" readonly [(ngModel)]="userProfile.email" id="mailInp" formControlName="email">
             <h5>Total:
               <span class="ml-1 font-weight-bold text-danger">{{ cartTotal | currency }}</span>
             </h5>
             <br>
             <button class="btn btn-warning btn-block" (click)="checkout()" [disabled]="btnDisabled">Checkout</button>
+          </form>
           </div>
+
         </div>
       </div>
     </div>
