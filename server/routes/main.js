@@ -230,11 +230,12 @@ async function sendMail(user,callback){
   });
 
   let mailOptions={
-    from:'"Agro Spicy Food Packers"<agrospicy.gmail.com>',//sender address
-    to:user.email, //reciever
+    from:'"Agro Spice Food Packers"<saroja.pg@gmail.com>',//sender address
+    //to:user.email, //reciever
+    to:"akila.rangoda@gmail.com",
     subject:"Order Details",
     html: `<h2>Hey ${user.name}</h2><br/>
-    <h4>Thans you for shopping with us!</h4>`
+    <h4>Thank you for shopping with us!</h4>`
   }
 
   let info=await transporter.sendMail(mailOptions);

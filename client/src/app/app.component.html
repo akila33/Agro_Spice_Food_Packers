@@ -1,3 +1,15 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  </head>
+
+
+
+<!-- bg-transparent -->
 <nav class="navbar navbar-expand-md navbar-dark bg-main">
   <div class="container-fluid">
     <a routerLink="/" class="navbar-brand">
@@ -8,31 +20,35 @@
     </button>
     <div [ngbCollapse]="isCollapsed" id="navbar-items" style="align-items: left; margin-left: 50px;" class="collapse navbar-collapse flex-column"
       id="navbarNav">
-      <div class="input-group w-75">
+      <!-- <div class="input-group w-75">
         <input type="text" name="search" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()">
         <span id="searchBtn" class="bg-warning" (click)="search()">
           <i class="fa fa-search"></i>
         </span>
-      </div>
+      </div> -->
+
+      
+
       <div class="w-200">
+          
         <ul class="navbar-nav">
-            <li class="nav-item ml-0 ml-lg-5">
+
+            
+
+            <li class="nav-item ml-0 ml-md-5">
               <a (click)="collapse()" routerLink="/categories" routerLinkActive="active" class="nav-link">About</a>
             </li>
-            <li class="nav-item ml-0 ml-lg-5">
-                <a (click)="collapse()" routerLink="/categories" routerLinkActive="active" class="nav-link">Careers</a>
-              </li>
-              <li class="nav-item ml-0 ml-lg-5">
+              <li class="nav-item ml-0 ml-md-5">
                 <a (click)="collapse()" routerLink="/categories" routerLinkActive="active" class="nav-link">Contact Us</a>
               </li>
-          <li class="nav-item ml-0 ml-lg-5">
+          <li class="nav-item ml-0 ml-md-5">
             <a (click)="collapse()" routerLink="/categories" routerLinkActive="active" class="nav-link">Categories</a>
           </li>
-          <li class="nav-item ml-0 ml-lg-5" ngbDropdown #dropdown="ngbDropdown">
+          <li class="nav-item ml-0 ml-md-5" ngbDropdown #dropdown="ngbDropdown">
             <a class="nav-link dropdown-toggle" ngbDropdownToggle>
               <i class="fa fa-user mr-1"></i>
               <span *ngIf="!token">Accounts</span>
-              <span *ngIf="data.user">{{ data.user.name }}</span>
+              <span *ngIf="data.user">{{ getShortName(data.user.name) }}</span>
             </a>
             <div ngbDropdownMenu class="dropdown-menu">
               <a *ngIf="token" (click)="closeDropdown(dropdown);collapse();" routerLink="/profile" class="dropdown-item">
@@ -49,18 +65,24 @@
               </a>
             </div>
           </li>
-          <li class="nav-item ml-0 ml-lg-5">
+          <li class="nav-item ml-0 ml-md-5">
             <a (click)="collapse()" routerLink="/cart" routerLinkActive="active" class="nav-link">
               <i class="fa fa-shopping-cart mr-1"></i>
               Cart
               <span *ngIf="data.cartItems" class="badge badge-warning ml-1">{{ data.cartItems }}</span>
             </a>
           </li>
-          <li class="nav-item ml-0 ml-lg-5">
+          <!-- <li class="nav-item ml-0 ml-md-5">
               <a routerLink="/" class="navbar-brand">
                 <img src="./assets/img/tif.png" alt="logo" id="tif">
               </a>
-            </li>
+            </li> -->
+<!-- Searchbar Component -->
+            <div class="searchbar ml-0 ml-md-5">
+                <input class="search_input" type="text" name="" placeholder="Search...">
+                <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+              </div>
+
         </ul>
       </div>
     </div>

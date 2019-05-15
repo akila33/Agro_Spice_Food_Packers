@@ -48,4 +48,8 @@ export class AppComponent {
       this.router.navigate(['search', { query: this.searchTerm }]);
     }
   }
+
+  getShortName(fullName) { 
+    return fullName.split(' ')[0];
+  }
 }
