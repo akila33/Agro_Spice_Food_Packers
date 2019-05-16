@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -64,6 +64,7 @@ import { NotificationsService } from './notifications.service';
     NgbModule.forRoot(),
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [RestApiService, DataService, AuthGuardService,NotificationsService],
   bootstrap: [AppComponent],

@@ -1,9 +1,9 @@
 //main.JS file to facilitate REST services for Products,Categories, Review and payment functionality  
-
+require('dotenv').config({path: 'C:/node/Agro_Spice_Food_Packers' + '/.env'});
 //Including the required packages and assigning it to Local Variables
 const router = require('express').Router();
 const async = require('async');
-const stripe = require('stripe')('sk_test_REBXB5E29UK5h0Rjbf02CrO9');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const nodemailer=require('nodemailer');
 
 const Category = require('../models/category');
@@ -230,11 +230,12 @@ async function sendMail(user,callback){
   });
 
   let mailOptions={
-    from:'"Agro Spicy Food Packers"<agrospicy.gmail.com>',//sender address
-    to:user.email, //reciever
+    from:'"Agro Spice Food Packers"<saroja.pg@gmail.com>',//sender address
+    //to:user.email, //reciever
+    to:"akila.rangoda@gmail.com",
     subject:"Order Details",
     html: `<h2>Hey ${user.name}</h2><br/>
-    <h4>Thans you for shopping with us!</h4>`
+    <h4>Thank you for shopping with us!</h4>`
   }
 
   let info=await transporter.sendMail(mailOptions);
