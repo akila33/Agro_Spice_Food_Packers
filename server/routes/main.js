@@ -10,7 +10,7 @@ const Category = require('../models/category');
 const Product = require('../models/product');
 const Review = require('../models/review');
 const Order = require('../models/order');
-const Recipe = require('../models/recipe');
+//const Recipe = require('../models/recipe');
 
 const checkJWT = require('../middlewares/check-jwt');
 
