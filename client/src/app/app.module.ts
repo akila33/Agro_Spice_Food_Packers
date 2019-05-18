@@ -35,6 +35,7 @@ import { CartComponent } from './cart/cart.component';
 import { MyordersComponent } from './myorders/myorders.component';
 import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { NotificationsService } from './notifications.service';
+import { RecipesComponent } from './recipes/recipes.component';
 
 
 //Module decorator specifying all the components used in the application 
@@ -57,6 +58,7 @@ import { NotificationsService } from './notifications.service';
     CartComponent,
     MyordersComponent,
     OrderdetailsComponent,
+    RecipesComponent,
   ],
   imports: [
     BrowserModule,

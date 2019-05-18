@@ -10,6 +10,7 @@ const Category = require('../models/category');
 const Product = require('../models/product');
 const Review = require('../models/review');
 const Order = require('../models/order');
+const Recipe = require('../models/recipe');
 
 const checkJWT = require('../middlewares/check-jwt');
 
@@ -172,6 +173,27 @@ router.route('/categories')
     ]);
   });
 
+  //Function to facilitate recipes GET and POST requests 
+  router.route('/recipes')
+  .get((req, res, next) => {
+    Recipe.find({}, (err, recipes) => {
+      res.json({
+        success: true,
+        message: "Success",
+        recipes: recipes
+      })
+    })
+  })
+  .post((req, res, next) => {
+    let recipe = new Recipe();
+    recipe.name = req.body.recipe;
+    recipe.save();
+    res.json({
+      success: true,
+      message: "Successful"
+    });
+  });
+
 //Function to facilitate payment functionality  using STRIPE API 
 router.post('/payment', checkJWT, (req, res, next) => {
   const stripeToken = req.body.stripeToken;
@@ -231,8 +253,8 @@ async function sendMail(user,callback){
 
   let mailOptions={
     from:'"Agro Spice Food Packers"<saroja.pg@gmail.com>',//sender address
-    //to:user.email, //reciever
-    to:"akila.rangoda@gmail.com",
+    to:user.email, //reciever
+    //to:"akila.rangoda@gmail.com",
     subject:"Order Details",
     html: `<h2>Hey ${user.name}</h2><br/>
     <h4>Thank you for shopping with us!</h4>`
