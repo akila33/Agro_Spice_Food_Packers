@@ -8,6 +8,8 @@ const Order = require('../models/order');
 const config = require('../config');
 const checkJWT = require('../middlewares/check-jwt');
 
+const Admin = require('../models/admin');
+
 
 //Function to facilitate Sign Up feature 
 router.post('/signup', (req, res, next) => {
@@ -43,6 +45,41 @@ router.post('/signup', (req, res, next) => {
 
  });
 });
+
+//Function to facilitate Admin-Sign Up feature 
+router.post('/admin-signup', (req, res, next) => {
+  let admin = new Admin();
+  admin.name = req.body.name;
+  admin.email = req.body.email;
+  admin.password = req.body.password;
+  admin.picture = admin.gravatar();
+ 
+  Admin.findOne({ email: req.body.email }, (err, existingAdmin) => {
+   if (existingAdmin) {
+     res.json({
+       success: false,
+       message: 'Account with that email is already exist'
+     });
+ 
+   } else {
+     admin.save();
+ 
+     var token = jwt.sign({
+       admin: admin
+     }, config.secret, {
+       expiresIn: '7d'
+     });
+ 
+     res.json({
+       success: true,
+       message: 'Enjoy your token',
+       token: token
+     });
+   }
+ 
+  });
+ });
+
 
 //Function to facilitate login feature
 router.post('/login', (req, res, next) => {
@@ -101,7 +138,7 @@ router.route('/profile')
       if (req.body.email) user.email = req.body.email;
       if (req.body.password) user.password = req.body.password;
 
-      user.isSeller = req.body.isSeller;
+      //user.isSeller = req.body.isSeller;
 
       user.save();
       res.json({

@@ -20,7 +20,6 @@ export class RegistrationComponent implements OnInit {
   email = '';
   password = '';
   password1 = '';
-  isSeller = false;
 
   btnDisabled = false;
 
@@ -61,18 +60,19 @@ export class RegistrationComponent implements OnInit {
     try {
       if (this.validate()) {
         const data = await this.rest.post(
-          'http://localhost:3030/api/accounts/admin-signup',
+          'http://localhost:3030/api/accounts/signup',
           {
             name: this.name,
             email: this.email,
             password: this.password,
-            isSeller: this.isSeller,
+            //isSeller: this.isSeller,
           },
         );
         if (data['success']) {
           localStorage.setItem('token', data['token']);
           await this.data.getProfile();
           this.data.success('Registration successful!');
+          this.router.navigate(['/dashboard']);
         } else {
           this.data.error(data['message']);
         }
