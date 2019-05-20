@@ -12,32 +12,45 @@ import { UserProfileComponent} from './user-profile/user-profile.component';
 import { TableListComponent} from './table-list/table-list.component';
 
 const routes: Routes =[
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  }, {
+    path: '',
+    component: AdminLayoutComponent,
+    children: [
+        {
+      path: '',
+      loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+  }]
+},
+
   // {
   //   path: '',
-  //   redirectTo: 'dashboard',
-  //   pathMatch: 'full',
-  // }, {
-  //   path: '',
-  //   component: AdminLayoutComponent,
-  //   children: [
-  //       {
-  //     path: '',
-  //     loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-  // }]}
-     { path: 'dashboard',      component: DashboardComponent },
-     { path: 'user-profile',   component: UserProfileComponent },
-     { path: 'table-list',     component: TableListComponent },
-     {
-      path: 'registration',
-      component: RegistrationComponent,
-      canActivate: [AuthGuardService],
-    },
+  //   component: DashboardComponent,
+  // },
+  //{ path: '',  redirectTo: 'dashboard', pathMatch: 'full' },
+  
+    //  { path: 'dashboard',      component: DashboardComponent },
+    //  { path: 'user-profile',   component: UserProfileComponent },
+    //  { path: 'table-list',     component: TableListComponent },
+    //  {
+    //   path: 'registration',
+    //   component: RegistrationComponent,
+    //   canActivate: [AuthGuardService],
+    // },
+    // {
+    //   path: '**',
+    //   redirectTo: '',
+    // },
+
     // { path: 'typography',     component: TypographyComponent },
     // { path: 'icons',          component: IconsComponent },
     // { path: 'maps',           component: MapsComponent },
     // { path: 'notifications',  component: NotificationsComponent },
     // { path: 'upgrade',        component: UpgradeComponent },
-    // { path: '',               redirectTo: 'dashboard', pathMatch: 'full' }
+     
 ];
 
 @NgModule({
@@ -47,6 +60,7 @@ const routes: Routes =[
     RouterModule.forRoot(routes)
   ],
   exports: [
+    //RouterModule
   ],
 })
 export class AppRoutingModule { }

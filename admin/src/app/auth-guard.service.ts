@@ -21,12 +21,12 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (localStorage.getItem('token')) {
-      return state.url.startsWith('/registration')
+      return state.url.startsWith('/dashboard')
         ? true
-        : (this.router.navigate(['/registration']), false);
+        : (this.router.navigate(['/']), false);
     } else {
-      return state.url.startsWith('/registration')
-        ? (this.router.navigate(['/registration']), false)
+      return state.url.startsWith('/dashboard')
+        ? (this.router.navigate(['/']), false)
         : true;
     }
   }

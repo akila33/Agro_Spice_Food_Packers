@@ -13,7 +13,7 @@ export class DataService {
   message = '';
   messageType = 'danger';
 
-  user: any;
+  admin: any;
   cartItems = 0;
 
   constructor(private router: Router, private rest: RestApiService) {
@@ -43,14 +43,14 @@ export class DataService {
     try {
       if (localStorage.getItem('token')) {
         const data = await this.rest.get(
-          'http://localhost:3030/api/accounts/profile',
+          'http://localhost:3030/api/admin-accounts/admin-profile',
         );
-        this.user = data['user'];
-        let userPro={
-          name:this.user['name'],
-          email:this.user['email']
+        this.admin = data['admin'];
+        let adminPro={
+          name:this.admin['name'],
+          email:this.admin['email']
         }
-        localStorage.setItem('userProfile',JSON.stringify(userPro));
+        localStorage.setItem('userProfile',JSON.stringify(adminPro));
       }
     } catch (e) {
       this.error(e);

@@ -60,7 +60,7 @@ export class RegistrationComponent implements OnInit {
     try {
       if (this.validate()) {
         const data = await this.rest.post(
-          'http://localhost:3030/api/accounts/signup',
+          'http://localhost:3030/api/accounts/admin-signup',
           {
             name: this.name,
             email: this.email,

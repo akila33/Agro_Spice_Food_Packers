@@ -4,11 +4,10 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+//const Admin = require('../models/admin');
 const Order = require('../models/order');
 const config = require('../config');
 const checkJWT = require('../middlewares/check-jwt');
-
-const Admin = require('../models/admin');
 
 
 //Function to facilitate Sign Up feature 
@@ -47,38 +46,38 @@ router.post('/signup', (req, res, next) => {
 });
 
 //Function to facilitate Admin-Sign Up feature 
-router.post('/admin-signup', (req, res, next) => {
-  let admin = new Admin();
-  admin.name = req.body.name;
-  admin.email = req.body.email;
-  admin.password = req.body.password;
-  admin.picture = admin.gravatar();
+// router.post('/admin-signup', (req, res, next) => {
+//   let admin = new Admin();
+//   admin.name = req.body.name;
+//   admin.email = req.body.email;
+//   admin.password = req.body.password;
+//   admin.picture = admin.gravatar();
  
-  Admin.findOne({ email: req.body.email }, (err, existingAdmin) => {
-   if (existingAdmin) {
-     res.json({
-       success: false,
-       message: 'Account with that email is already exist'
-     });
+//   Admin.findOne({ email: req.body.email }, (err, existingAdmin) => {
+//    if (existingAdmin) {
+//      res.json({
+//        success: false,
+//        message: 'Account with that email is already exist'
+//      });
  
-   } else {
-     admin.save();
+//    } else {
+//      admin.save();
  
-     var token = jwt.sign({
-       admin: admin
-     }, config.secret, {
-       expiresIn: '7d'
-     });
+//      var token = jwt.sign({
+//        admin: admin
+//      }, config.secret, {
+//        expiresIn: '7d'
+//      });
  
-     res.json({
-       success: true,
-       message: 'Enjoy your token',
-       token: token
-     });
-   }
+//      res.json({
+//        success: true,
+//        message: 'Enjoy your token',
+//        token: token
+//      });
+//    }
  
-  });
- });
+//   });
+//  });
 
 
 //Function to facilitate login feature
@@ -147,6 +146,35 @@ router.route('/profile')
       });
     });
   });
+
+  //Function to handle Admin Profile API (GET,POST) functionality for authenticated admins
+router.route('/admin-profile')
+.get(checkJWT, (req, res, next) => {
+  Admin.findOne({ _id: req.decoded.admin._id }, (err, admin) => {
+    res.json({
+      success: true,
+      admin: admin,
+      message: "Successful"
+    });
+  });
+})
+.post(checkJWT, (req, res, next) => {
+  User.findOne({ _id: req.decoded.admin._id }, (err, admin) => {
+    if (err) return next(err);
+
+    if (req.body.name) admin.name = req.body.name;
+    if (req.body.email) admin.email = req.body.email;
+    if (req.body.password) admin.password = req.body.password;
+
+    //user.isSeller = req.body.isSeller;
+
+    admin.save();
+    res.json({
+      success: true,
+      message: 'Successfully edited your profile'
+    });
+  });
+});
 
   router.route('/address')
   .get(checkJWT, (req, res, next) => {
