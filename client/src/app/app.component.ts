@@ -61,7 +61,7 @@ export class AppComponent {
     return fullName.split(' ')[0];
   }
 
-
+// New elements
   ngOnInit() {
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
