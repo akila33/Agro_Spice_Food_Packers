@@ -15,7 +15,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 })
 
 //exporting the AppComponnet for reuse 
-export class AppComponent {
+export class AppComponent implements OnInit{
   searchTerm = '';
   isCollapsed = true;
 
