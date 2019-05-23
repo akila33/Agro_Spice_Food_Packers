@@ -79,34 +79,34 @@ router.post('/admin-login', (req, res, next) => {
   });
 });
 
-// //Function to handle Profile API (GET,POST) functionality for authenticated users 
-// router.route('/admin-profile')
-//   .get(checkJWT, (req, res, next) => {
-//     Admin.findOne({ _id: req.decoded.admin._id }, (err, admin) => {
-//       res.json({
-//         success: true,
-//         admin: admin,
-//         message: "Successful"
-//       });
-//     });
-//   })
-//   .post(checkJWT, (req, res, next) => {
-//     Admin.findOne({ _id: req.decoded.admin._id }, (err, admin) => {
-//       if (err) return next(err);
+//Function to handle Profile API (GET,POST) functionality for authenticated users 
+router.route('/admin-profile')
+  .get(checkJWT, (req, res, next) => {
+    Admin.findOne({ _id: req.decoded.admin._id }, (err, admin) => {
+      res.json({
+        success: true,
+        admin: admin,
+        message: "Successful"
+      });
+    });
+  })
+  .post(checkJWT, (req, res, next) => {
+    Admin.findOne({ _id: req.decoded.admin._id }, (err, admin) => {
+      if (err) return next(err);
 
-//       if (req.body.name) admin.name = req.body.name;
-//       if (req.body.email) admin.email = req.body.email;
-//       if (req.body.password) admin.password = req.body.password;
+      if (req.body.name) admin.name = req.body.name;
+      if (req.body.email) admin.email = req.body.email;
+      if (req.body.password) admin.password = req.body.password;
 
-//       //user.isSeller = req.body.isSeller;
+      //user.isSeller = req.body.isSeller;
 
-//       admin.save();
-//       res.json({
-//         success: true,
-//         message: 'Successfully edited your profile'
-//       });
-//     });
-//   });
+      admin.save();
+      res.json({
+        success: true,
+        message: 'Successfully edited your profile'
+      });
+    });
+  });
 
 
 //Exporting the module 

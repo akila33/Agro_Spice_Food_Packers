@@ -50,7 +50,7 @@ export class DataService {
           name:this.admin['name'],
           email:this.admin['email']
         }
-        localStorage.setItem('userProfile',JSON.stringify(adminPro));
+        localStorage.setItem('adminProfile',JSON.stringify(adminPro));
       }
     } catch (e) {
       this.error(e);
