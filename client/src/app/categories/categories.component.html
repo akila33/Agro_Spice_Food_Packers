@@ -1,3 +1,16 @@
+<!-- Categories page background cover -->
+<div class="page-header section-dark" style="background-image: url('assets/img/products.jpg')">
+  <div class="filter"></div>
+  <div class="content-center">
+      <div class="container">
+          <div class="title-brand">
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
 <section id="categories">
   <div class="container p-5">
     <app-message></app-message>
@@ -8,8 +21,8 @@
         <i class="fa fa-spinner fa-spin"></i>
       </h1>
     </div>
-    <div *ngIf="categories" class="list-group">
-      <a *ngFor="let category of categories" routerLink="/categories/{{ category._id }}" class="list-group-item list-group-item-action">
+    <div *ngIf="categories" class="list-group" >
+      <a *ngFor="let category of categories" routerLink="/categories/{{ category._id }}" id="lama" class="list-group-item list-group-item-action">
       {{ category.name }}
       </a>
     </div>

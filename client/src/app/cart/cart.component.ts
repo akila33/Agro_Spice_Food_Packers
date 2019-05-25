@@ -125,14 +125,15 @@ export class CartComponent implements OnInit {
 
   checkout() {
     //console.log(this.infoForm.value);
-    this.notificationService.sendEmail(this.infoForm.value).
-    subscribe(data => {
-      let msg = "Notification Sent to Email!"
-      alert(msg);
-      // console.log(data, "success");
-    }, error => {
-      console.error(error, "error");
-    });
+    //........... Calling to the Email service
+    // this.notificationService.sendEmail(this.infoForm.value).
+    // subscribe(data => {
+    //   let msg = "Notification Sent to Email!"
+    //   alert(msg);
+    //   // console.log(data, "success");
+    // }, error => {
+    //   console.error(error, "error");
+    // });
 
     this.btnDisabled = true;
     try {
