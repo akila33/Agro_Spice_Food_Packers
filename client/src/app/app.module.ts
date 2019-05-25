@@ -37,6 +37,7 @@ import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { NotificationsService } from './notifications.service';
 import { RecipesComponent } from './recipes/recipes.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 //Module decorator specifying all the components used in the application 
@@ -61,6 +62,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     OrderdetailsComponent,
     RecipesComponent,
     ContactUsComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,

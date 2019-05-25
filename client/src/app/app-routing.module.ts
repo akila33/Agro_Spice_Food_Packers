@@ -21,6 +21,7 @@ import { MyordersComponent} from './myorders/myorders.component';
 import { OrderdetailsComponent} from './orderdetails/orderdetails.component';
 import { RecipesComponent} from './recipes/recipes.component';
 import { ContactUsComponent} from './contact-us/contact-us.component';
+import { AboutUsComponent} from './about-us/about-us.component';
 
 import { AuthGuardService } from './auth-guard.service';
 
@@ -102,6 +103,10 @@ const routes: Routes = [
   {
     path: 'contact-us',
     component: ContactUsComponent,
+  },
+  {
+    path: 'about-us',
+    component: AboutUsComponent,
   },
   {
     path: '**',
