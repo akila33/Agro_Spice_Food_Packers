@@ -24,6 +24,8 @@ import { ContactUsComponent} from './contact-us/contact-us.component';
 
 import { AuthGuardService } from './auth-guard.service';
 
+import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
+
 
 //assigning all possible routes to variable 
 const routes: Routes = [
@@ -98,6 +100,10 @@ const routes: Routes = [
     path: 'profile/orders',
     component: MyordersComponent,
     canActivate: [AuthGuardService],
+  },
+  {
+    path: 'pdf',
+    component: HtmltopdfComponent,
   },
   {
     path: 'contact-us',
