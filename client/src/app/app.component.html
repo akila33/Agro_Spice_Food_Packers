@@ -1,7 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 
 <!-- <head>
   <link href="./../assets/css/nucleo-icons.css" rel="stylesheet" />
@@ -65,75 +62,7 @@
     </div>
 </nav> -->
 
-<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
-  <div class="container">
-    <div class="navbar-translate">
-    <a routerLink="/" class="navbar-brand">
-      <img src="./assets/img/logo.png" alt="logo" id="logo"> Agro Spice Food Packers
-    </a>
-    <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()" (click)="isCollapsed = !isCollapsed">
-      <span class="navbar-toggler-bar"></span>
-      <span class="navbar-toggler-bar"></span>
-      <span class="navbar-toggler-bar"></span>
-    </button>
-  </div>
-    <div [ngbCollapse]="isCollapsed" id="navbar-items" style="align-items: left; margin-left: 50px;" class="collapse navbar-collapse flex-column"
-      id="navbarNav navbarToggler">
-
-      <div class="w-200">
-        <ul class="navbar-nav">
-            <li class="nav-item ml-0 ml-lg-6">
-              <a (click)="collapse()" rel="tooltip" routerLink="/about-us" routerLinkActive="active" class="nav-link">About</a>
-            </li>
-            <li class="nav-item ml-0 ml-lg-6">
-                <a (click)="collapse()" routerLink="/contact-us" routerLinkActive="active" class="nav-link">Contact Us</a>
-              </li>
-              <li class="nav-item ml-0 ml-lg-6">
-                <a (click)="collapse()" routerLink="/recipes" routerLinkActive="active" class="nav-link">Recipes</a>
-              </li>
-          <li class="nav-item ml-0 ml-lg-6">
-            <a (click)="collapse()" routerLink="/categories" routerLinkActive="active" class="nav-link">Categories</a>
-          </li>
-          <li class="nav-item ml-0 ml-lg-6" ngbDropdown #dropdown="ngbDropdown">
-            <a class="nav-link dropdown-toggle" ngbDropdownToggle>
-              <i class="fa fa-user mr-1"></i>
-              <span *ngIf="!token">Accounts</span>
-              <span *ngIf="data.user">{{ getShortName(data.user.name) }}</span>
-            </a>
-            <div ngbDropdownMenu class="dropdown-menu">
-              <a *ngIf="token" (click)="closeDropdown(dropdown);collapse();" routerLink="/profile" class="dropdown-item">
-                <i class="fa fa-user-circle" aria-hidden="true"></i> Profile
-              </a>
-              <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/login" class="dropdown-item">
-                <i class="fa fa-key" aria-hidden="true"></i> Login
-              </a>
-              <a *ngIf="token" (click)="closeDropdown(dropdown);collapse();logout();" class="dropdown-item">
-                <i class="fa fa-key" aria-hidden="true"></i> Logout
-              </a>
-              <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/register" class="dropdown-item">
-                <i class="fa fa-group" aria-hidden="true"></i> Register
-              </a>
-            </div>
-          </li>
-          <li class="nav-item ml-0 ml-lg-6">
-            <a (click)="collapse()" routerLink="/cart" routerLinkActive="active" class="nav-link">
-              <i class="fa fa-shopping-cart mr-1"></i>
-              Cart
-              <span *ngIf="data.cartItems" class="badge badge-warning ml-1">{{ data.cartItems }}</span>
-            </a>
-          </li>
-
-            <div class="searchbar ml-0 ml-lg-5">
-              <input class="search_input" type="text" name="search" (click)="search()" placeholder="Search..." [(ngModel)]="searchTerm" (keyup.enter)="search()">
-              <span id="searchBtn" class="search_icon" (click)="search()">
-                <i class="fa fa-search"></i>
-              </span>
-            </div>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
+<app-navbar></app-navbar>
 
 <router-outlet></router-outlet>
 
