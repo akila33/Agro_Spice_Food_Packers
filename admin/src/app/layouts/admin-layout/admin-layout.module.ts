@@ -11,6 +11,9 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { AddProductComponent } from '../../add-product/add-product.component';
+import { LoginComponent } from '../../login/login.component';
+import { RegistrationComponent } from '../../registration/registration.component';
 
 import {
   MatButtonModule,
@@ -41,6 +44,8 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    AddProductComponent,
+
   ]
 })
 
