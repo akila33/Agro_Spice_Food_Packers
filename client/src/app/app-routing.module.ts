@@ -25,6 +25,7 @@ import { ContactUsComponent} from './contact-us/contact-us.component';
 import { AuthGuardService } from './auth-guard.service';
 
 import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
+import { CustomersComponent } from './customers/customers.component';
 
 
 //assigning all possible routes to variable 
@@ -104,6 +105,10 @@ const routes: Routes = [
   {
     path: 'pdf',
     component: HtmltopdfComponent,
+  },
+  {
+    path: 'customers',
+    component: CustomersComponent,
   },
   {
     path: 'contact-us',

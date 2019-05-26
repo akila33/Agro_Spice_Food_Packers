@@ -38,6 +38,7 @@ import { NotificationsService } from './notifications.service';
 import { RecipesComponent } from './recipes/recipes.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
+import { CustomersComponent } from './customers/customers.component';
 
 
 //Module decorator specifying all the components used in the application 
@@ -63,6 +64,7 @@ import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
     RecipesComponent,
     ContactUsComponent,
     HtmltopdfComponent,
+    CustomersComponent,
   ],
   imports: [
     BrowserModule,
