@@ -41,6 +41,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
 
 import { AboutUsComponent } from './about-us/about-us.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -66,11 +67,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     OrderdetailsComponent,
     RecipesComponent,
     ContactUsComponent,
-
     HtmltopdfComponent,
-
     AboutUsComponent,
-
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

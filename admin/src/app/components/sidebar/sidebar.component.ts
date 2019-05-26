@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-declare const $: any;
 declare interface RouteInfo {
     path: string;
     title: string;
@@ -8,19 +7,16 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '', title: 'Stock',  icon:'person', class: '' },
-    { path: '', title: 'Add Product',  icon:'person', class: '' },
-    { path: '', title: 'Categories',  icon:'person', class: '' },
-    { path: '/table-list', title: 'Employees',  icon:'content_paste', class: '' },
-    { path: '/user-profile', title: 'Employee Profile',  icon:'library_books', class: '' },
-    // { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
-    // { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
-    // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
-    // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
+    { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
+    { path: '/icons', title: 'Products',  icon:'education_atom', class: '' },
+    { path: '/maps', title: 'Add Product',  icon:'location_map-big', class: '' },
+    { path: '/notifications', title: 'Employees',  icon:'ui-1_bell-53', class: '' },
+
+    { path: '/user-profile', title: 'Add Employees',  icon:'users_single-02', class: '' },
+    { path: '/table-list', title: 'Customers',  icon:'design_bullet-list-67', class: '' },
+    // { path: '/typography', title: 'Typography',  icon:'text_caps-small', class: '' },
+    // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'objects_spaceship', class: 'active active-pro' }
+
 ];
 
 @Component({
@@ -37,7 +33,7 @@ export class SidebarComponent implements OnInit {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
   isMobileMenu() {
-      if ($(window).width() > 991) {
+      if ( window.innerWidth > 991) {
           return false;
       }
       return true;

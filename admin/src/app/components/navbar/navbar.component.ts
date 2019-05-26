@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import Chart from 'chart.js';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +15,8 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+
+    public isCollapsed = true;
 
     constructor(location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
@@ -34,26 +37,52 @@ export class NavbarComponent implements OnInit {
      });
     }
 
+    collapse(){
+      this.isCollapsed = !this.isCollapsed;
+      const navbar = document.getElementsByTagName('nav')[0];
+      console.log(navbar);
+      if (!this.isCollapsed) {
+        navbar.classList.remove('navbar-transparent');
+        navbar.classList.add('bg-white');
+      }else{
+        navbar.classList.add('navbar-transparent');
+        navbar.classList.remove('bg-white');
+      }
+
+    }
+
     sidebarOpen() {
         const toggleButton = this.toggleButton;
-        const body = document.getElementsByTagName('body')[0];
+        const mainPanel =  <HTMLElement>document.getElementsByClassName('main-panel')[0];
+        const html = document.getElementsByTagName('html')[0];
+        if (window.innerWidth < 991) {
+          mainPanel.style.position = 'fixed';
+        }
+
         setTimeout(function(){
             toggleButton.classList.add('toggled');
         }, 500);
 
-        body.classList.add('nav-open');
+        html.classList.add('nav-open');
 
         this.sidebarVisible = true;
     };
     sidebarClose() {
-        const body = document.getElementsByTagName('body')[0];
+        const html = document.getElementsByTagName('html')[0];
         this.toggleButton.classList.remove('toggled');
+        const mainPanel =  <HTMLElement>document.getElementsByClassName('main-panel')[0];
+
+        if (window.innerWidth < 991) {
+          setTimeout(function(){
+            mainPanel.style.position = '';
+          }, 500);
+        }
         this.sidebarVisible = false;
-        body.classList.remove('nav-open');
+        html.classList.remove('nav-open');
     };
     sidebarToggle() {
         // const toggleButton = this.toggleButton;
-        // const body = document.getElementsByTagName('body')[0];
+        // const html = document.getElementsByTagName('html')[0];
         var $toggle = document.getElementsByClassName('navbar-toggler')[0];
 
         if (this.sidebarVisible === false) {
@@ -61,11 +90,11 @@ export class NavbarComponent implements OnInit {
         } else {
             this.sidebarClose();
         }
-        const body = document.getElementsByTagName('body')[0];
+        const html = document.getElementsByTagName('html')[0];
 
         if (this.mobile_menu_visible == 1) {
             // $('html').removeClass('nav-open');
-            body.classList.remove('nav-open');
+            html.classList.remove('nav-open');
             if ($layer) {
                 $layer.remove();
             }
@@ -83,9 +112,9 @@ export class NavbarComponent implements OnInit {
             $layer.setAttribute('class', 'close-layer');
 
 
-            if (body.querySelectorAll('.main-panel')) {
+            if (html.querySelectorAll('.main-panel')) {
                 document.getElementsByClassName('main-panel')[0].appendChild($layer);
-            }else if (body.classList.contains('off-canvas-sidebar')) {
+            }else if (html.classList.contains('off-canvas-sidebar')) {
                 document.getElementsByClassName('wrapper-full-page')[0].appendChild($layer);
             }
 
@@ -94,7 +123,7 @@ export class NavbarComponent implements OnInit {
             }, 100);
 
             $layer.onclick = function() { //asign a function
-              body.classList.remove('nav-open');
+              html.classList.remove('nav-open');
               this.mobile_menu_visible = 0;
               $layer.classList.remove('visible');
               setTimeout(function() {
@@ -103,7 +132,7 @@ export class NavbarComponent implements OnInit {
               }, 400);
             }.bind(this);
 
-            body.classList.add('nav-open');
+            html.classList.add('nav-open');
             this.mobile_menu_visible = 1;
 
         }
