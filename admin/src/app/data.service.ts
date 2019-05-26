@@ -39,21 +39,21 @@ export class DataService {
     this.message = message;
   }
 
-  async getProfile() {
-    try {
-      if (localStorage.getItem('token')) {
-        const data = await this.rest.get(
-          'http://localhost:3030/api/admin-accounts/admin-profile',
-        );
-        this.admin = data['admin'];
-        let adminPro={
-          name:this.admin['name'],
-          email:this.admin['email']
-        }
-        localStorage.setItem('adminProfile',JSON.stringify(adminPro));
-      }
-    } catch (e) {
-      this.error(e);
-    }
-  }
+  // async getProfile() {
+  //   try {
+  //     if (localStorage.getItem('token')) {
+  //       const data = await this.rest.get(
+  //         'http://localhost:3030/api/admin-accounts/admin-profile',
+  //       );
+  //       this.admin = data['admin'];
+  //       let adminPro={
+  //         name:this.admin['name'],
+  //         email:this.admin['email']
+  //       }
+  //       localStorage.setItem('adminProfile',JSON.stringify(adminPro));
+  //     }
+  //   } catch (e) {
+  //     this.error(e);
+  //   }
+  // }
 }
