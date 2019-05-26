@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section id="home">
   <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="1000" >
     <ngb-carousel>
@@ -22,6 +23,67 @@
     <app-message></app-message>
     <p class="lead">
       <b>Recommended Deals: Last-Minute Deals</b>
+=======
+<head>
+    <link href="./../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="./../assets/css/demo.css" rel="stylesheet" />
+</head>
+
+
+<section id="home">
+
+  <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="1000" >
+    <ngb-carousel>
+      <ng-template ngbSlide>
+        <img src="assets/img/1.jpg" alt="first" class="item">
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="assets/img/2.jpg" alt="third" class="item">
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="assets/img/3.png" alt="fifth" class="item">
+      </ng-template>
+    </ngb-carousel>
+  </div> -->
+
+  <!-- Home page background cover -->
+  <div class="page-header section-dark" style="background-image: url('assets/img/back.jpg')">
+    <div class="filter"></div>
+    <div class="content-center">
+        <div class="container">
+            <div class="title-brand">
+                <!-- <div class="angular-logo">
+                    <img src="assets/img/angular2-logo.png" alt="">
+                </div> -->
+                <!-- <h2 class="presentation-title">Agro Spice food Packers</h2> -->
+                <!-- <div class="fog-low">
+                    <img src="assets/img/fog-low.png" alt="">
+                </div>
+                <div class="fog-low right">
+                    <img src="assets/img/fog-low.png" alt="">
+                </div> -->
+            </div>
+  
+            <!-- <h2 class="presentation-subtitle text-center">Free Bootstrap 4 UI Kit for Angular 7</h2> -->
+        </div>
+    </div>
+    <div class="moving-clouds" style="background-image: url('assets/img/clouds.png'); "></div>
+    <!-- <h6 class=" category-absolute ml-auto mr-auto">Designed and coded by -->
+    <!-- <h6 class="category category-absolute">Designed and coded by -->
+  
+        <!-- <a href="https://www.creative-tim.com" target="_blank">
+            <img src="assets/img/creative-tim-white-slim2.png" class="creative-tim-logo">
+        </a>
+    </h6> -->
+  </div>
+
+
+
+  <div class="container p-5">
+    <app-message></app-message>
+    <p class="lead">
+      <b>Our Products</b>
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
     </p>
     <div class="row">
       <div *ngIf="!products" class="m-auto">
@@ -42,7 +104,79 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 </section>
 
  
 
+=======
+
+  
+</section>
+
+
+ <!--================ Subscription Area ================-->
+ <section class="subscription-area section_gap">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="section-title text-center">
+            <h2>Subscribe for Our Newsletter</h2>
+            <span>Sign up for exclusive offers, sales, newsletter & more!</span>
+          </div>
+        </div>
+        <br><br><br><br>
+        <!-- Email input -->
+        <div class="col-lg-6" >
+          <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+              <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1" (focus)="focus=true" (blur)="focus=false" >
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+              </div>
+              <a [routerLink]="" class="btn btn-danger btn-round">Subscribe</a>
+          </div>
+      </div>
+      </div>
+      
+      
+      
+
+    </div>
+  </section>
+  <!--================ End Subscription Area ================-->
+
+<!--================ Carousel ================-->
+  <div class="section" id="carousel">
+    <div class="container">
+        <div class="tim-title">
+            <h3>Carousel</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mr-auto ml-auto">
+                <div class="card page-carousel">
+                    <ngb-carousel>
+                        <ng-template ngbSlide>
+                            <img src="./assets/img/spices.jpg" alt="Random first slide">
+                            <div class="carousel-caption">
+                                <p>Spice1</p>
+                            </div>
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <img src="./assets/img/spice2s.jpg" alt="Random second slide">
+                            <div class="carousel-caption">
+                                <p>Spice2</p>
+                            </div>
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <img src="./assets/img/spices1.jpg" alt="Random third slide">
+                            <div class="carousel-caption">
+                                <p>Spice3</p>
+                            </div>
+                        </ng-template>
+                    </ngb-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4

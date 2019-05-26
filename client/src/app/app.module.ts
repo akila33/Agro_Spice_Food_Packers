@@ -35,6 +35,13 @@ import { CartComponent } from './cart/cart.component';
 import { MyordersComponent } from './myorders/myorders.component';
 import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { NotificationsService } from './notifications.service';
+<<<<<<< HEAD
+=======
+import { RecipesComponent } from './recipes/recipes.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { NavbarComponent } from './navbar/navbar.component';
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
 
 
 //Module decorator specifying all the components used in the application 
@@ -57,6 +64,13 @@ import { NotificationsService } from './notifications.service';
     CartComponent,
     MyordersComponent,
     OrderdetailsComponent,
+<<<<<<< HEAD
+=======
+    RecipesComponent,
+    ContactUsComponent,
+    AboutUsComponent,
+    NavbarComponent,
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
   ],
   imports: [
     BrowserModule,

@@ -5,5 +5,9 @@
 
 export const environment = {
   production: false,
+<<<<<<< HEAD
   stripeKey: 'pk_test_KvE0Hl5JASS3fkWTZ1Z3jdhL'
+=======
+  stripeKey: 'pk_test_KvE0Hl5JASS3fkWTZ1Z3jdhL',
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
 };

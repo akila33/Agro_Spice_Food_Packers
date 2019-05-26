@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Agro Spice Food Packers
 
 Agro Spice Food Packers web application using Angular | Node.js | Express.js | MongoDB (MEAN Stack)
@@ -32,3 +33,6 @@ cd server
 npm install
 node server.js
 ```
+=======
+# Agro Spice Food Packers
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4

@@ -2,6 +2,11 @@
 
 //including required services and modules 
 import { NgModule } from '@angular/core';
+<<<<<<< HEAD
+=======
+import { CommonModule, } from '@angular/common';
+import { BrowserModule  } from '@angular/platform-browser';
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
@@ -19,6 +24,12 @@ import { SearchComponent } from './search/search.component';
 import { CartComponent } from './cart/cart.component';
 import { MyordersComponent} from './myorders/myorders.component';
 import { OrderdetailsComponent} from './orderdetails/orderdetails.component';
+<<<<<<< HEAD
+=======
+import { RecipesComponent} from './recipes/recipes.component';
+import { ContactUsComponent} from './contact-us/contact-us.component';
+import { AboutUsComponent} from './about-us/about-us.component';
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
 
 import { AuthGuardService } from './auth-guard.service';
 
@@ -42,6 +53,13 @@ const routes: Routes = [
     component: CategoriesComponent,
   },
   {
+<<<<<<< HEAD
+=======
+    path: 'recipes',
+    component: RecipesComponent,
+  },
+  {
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
     path: 'categories/:id',
     component: CategoryComponent,
   },
@@ -94,6 +112,17 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },
   {
+<<<<<<< HEAD
+=======
+    path: 'contact-us',
+    component: ContactUsComponent,
+  },
+  {
+    path: 'about-us',
+    component: AboutUsComponent,
+  },
+  {
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
     path: '**',
     redirectTo: '',
   },
@@ -101,7 +130,14 @@ const routes: Routes = [
 
 //decorator to import and export routing Module in the application 
 @NgModule({
+<<<<<<< HEAD
   imports: [RouterModule.forRoot(routes)],
+=======
+  imports: [
+    CommonModule,
+    BrowserModule,
+    RouterModule.forRoot(routes)],
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
