@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -25,6 +25,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { MatToolbarModule, MatDialogModule, MatMenuModule, MatTooltipModule, MatFormFieldModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -36,7 +37,14 @@ import { AddProductComponent } from './add-product/add-product.component';
     AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-    })
+    }),
+    MatToolbarModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatTooltipModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
+
   ],
   declarations: [
     AppComponent,
