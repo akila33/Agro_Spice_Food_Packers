@@ -70,7 +70,7 @@ export class RegistrationComponent implements OnInit {
         );
         if (data['success']) {
           localStorage.setItem('token', data['token']);
-          await this.data.getProfile();
+          // await this.data.getProfile();
           this.data.success('Registration successful!');
           this.router.navigate(['/dashboard']);
         } else {

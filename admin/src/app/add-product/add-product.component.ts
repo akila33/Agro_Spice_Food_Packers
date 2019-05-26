@@ -1,4 +1,4 @@
-//post-products component.ts - Type Script file that contains code to render posted products to elearning application
+//add-products component.ts - Type Script file that contains code to render posted products to elearning application
 
 //including the required files and services
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +14,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./add-product.component.scss']
 })
 
-//exporting PostProduct component for reuse 
+//exporting AddProduct component for reuse 
 export class AddProductComponent implements OnInit {
 
   product = {
@@ -103,7 +103,7 @@ export class AddProductComponent implements OnInit {
           form
         );
         data['success']
-          ? this.router.navigate(['/profile/myproducts'])
+          ? this.router.navigate(['/dashboard'])
             .then(() => this.data.success(data['message']))
             .catch(error => this.data.error(error))
           : this.data.error(data['message']);

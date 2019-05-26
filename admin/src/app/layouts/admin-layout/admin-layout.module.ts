@@ -45,7 +45,6 @@ import {
     NotificationsComponent,
     UpgradeComponent,
     AddProductComponent,
-
   ]
 })
 
