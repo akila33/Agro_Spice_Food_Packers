@@ -79,7 +79,7 @@ router.post('/admin-login', (req, res, next) => {
   });
 });
 
-//Function to handle Profile API (GET,POST) functionality for authenticated users 
+//Function to handle Admin Profile API (GET,POST) functionality for authenticated users 
 router.route('/admin-profile')
   .get(checkJWT, (req, res, next) => {
     Admin.findOne({ _id: req.decoded.admin._id }, (err, admin) => {
@@ -97,8 +97,6 @@ router.route('/admin-profile')
       if (req.body.name) admin.name = req.body.name;
       if (req.body.email) admin.email = req.body.email;
       if (req.body.password) admin.password = req.body.password;
-
-      //user.isSeller = req.body.isSeller;
 
       admin.save();
       res.json({

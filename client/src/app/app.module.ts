@@ -37,8 +37,13 @@ import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { NotificationsService } from './notifications.service';
 import { RecipesComponent } from './recipes/recipes.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+
 import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
 import { CustomersComponent } from './customers/customers.component';
+
+import { AboutUsComponent } from './about-us/about-us.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 
 //Module decorator specifying all the components used in the application 
@@ -65,6 +70,8 @@ import { CustomersComponent } from './customers/customers.component';
     ContactUsComponent,
     HtmltopdfComponent,
     CustomersComponent,
+    AboutUsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

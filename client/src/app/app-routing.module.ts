@@ -2,6 +2,8 @@
 
 //including required services and modules 
 import { NgModule } from '@angular/core';
+import { CommonModule, } from '@angular/common';
+import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
@@ -21,6 +23,7 @@ import { MyordersComponent} from './myorders/myorders.component';
 import { OrderdetailsComponent} from './orderdetails/orderdetails.component';
 import { RecipesComponent} from './recipes/recipes.component';
 import { ContactUsComponent} from './contact-us/contact-us.component';
+import { AboutUsComponent} from './about-us/about-us.component';
 
 import { AuthGuardService } from './auth-guard.service';
 
@@ -115,6 +118,10 @@ const routes: Routes = [
     component: ContactUsComponent,
   },
   {
+    path: 'about-us',
+    component: AboutUsComponent,
+  },
+  {
     path: '**',
     redirectTo: '',
   },
@@ -122,7 +129,10 @@ const routes: Routes = [
 
 //decorator to import and export routing Module in the application 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
