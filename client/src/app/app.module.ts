@@ -39,7 +39,6 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 
 import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
-import { CustomersComponent } from './customers/customers.component';
 
 import { AboutUsComponent } from './about-us/about-us.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -69,7 +68,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     RecipesComponent,
     ContactUsComponent,
     HtmltopdfComponent,
-    CustomersComponent,
     AboutUsComponent,
     NavbarComponent,
   ],
