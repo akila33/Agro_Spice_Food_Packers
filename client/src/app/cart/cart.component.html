@@ -1,0 +1,99 @@
+<!-- Cart page background cover -->
+<div class="page-header section-dark" style="background-image: url('assets/img/cart.jpeg')">
+  <div class="filter"></div>
+  <div class="content-center">
+      <div class="container">
+          <div class="title-brand">
+              <!-- <div class="angular-logo">
+                  <img src="assets/img/angular2-logo.png" alt="">
+              </div> -->
+              <!-- <h2 class="presentation-title">Agro Spice food Packers</h2> -->
+              <!-- <div class="fog-low">
+                  <img src="assets/img/fog-low.png" alt="">
+              </div>
+              <div class="fog-low right">
+                  <img src="assets/img/fog-low.png" alt="">
+              </div> -->
+          </div>
+
+          <!-- <h2 class="presentation-subtitle text-center">Free Bootstrap 4 UI Kit for Angular 7</h2> -->
+      </div>
+  </div>
+  <!-- <div class="moving-clouds" style="background-image: url('assets/img/clouds.png'); "></div> -->
+</div>
+
+
+
+
+<section id="cart">
+  <div class="container-fluid p-5">
+    <app-message></app-message>
+    <h3 *ngIf="!cartItems.length" class="display-2 text-center mt-5">Cart is Empty</h3>
+    <div *ngIf="cartItems.length" class="row">
+      <div class="col-md-9">
+        <p class="lead font-weight-bold">Shopping Cart</p>
+        <div class="row">
+          <div class="offset-8 col-2 d-none d-md-block">
+            <p>
+              <small class="text-muted">Price</small>
+            </p>
+          </div>
+          <div class="col-2 d-none d-md-block">
+            <p>
+              <small class="text-muted">Quantity</small>
+            </p>
+          </div>
+        </div>
+        <hr class="mt-0">
+        <div *ngFor="let item of cartItems; let i=index; trackBy: trackByCartItems;" class="cartItem">
+          <div class="row">
+            <div class="col-4 col-md-2">
+              <a routerLink="/product/{{ item._id }}">
+                <img src="{{ item.image }}" alt="productImage" class="img-fluid img-thumbnail">
+              </a>
+            </div>
+            <div class="col-5 col-md-6">
+              <h5>
+                <a routerLink="/product/{{ item._id }}">{{ item.title }}</a>
+              </h5>
+              <p class="m-0">
+                <small class="text-muted">{{ item.owner.name }}</small>
+              </p>
+              <p class="m-0">
+                <small class="text-muted">{{ item.category.name }}</small>
+              </p>
+              <a class="text-danger" (click)="removeProduct(i, item)">Delete</a>
+            </div>
+            <div class="col-1 col-md-2">
+              <h6 class="font-weight-bold text-danger">{{ item.price | currency }}</h6>
+            </div>
+            <div class="col-1 mt-5 mt-md-0 p-0">
+              <input type="number" class="form-control" min="1" max="99" [(ngModel)]="quantities[i]">
+            </div>
+          </div>
+          <hr>
+        </div>
+        <h5 class="text-right">Total:
+          <span class="ml-1 font-weight-bold text-danger">{{ cartTotal | currency }}</span>
+        </h5>
+      </div>
+      <div class="col-md-3">
+        <div class="card bg-light">
+
+          <div class="card-body">
+          <form [formGroup]="infoForm">
+            <input style="visibility: hidden" type="text" readonly [(ngModel)]="userProfile.name" id="nameInp" formControlName="name">
+            <input style="visibility: hidden" type="text" readonly [(ngModel)]="userProfile.email" id="mailInp" formControlName="email">
+            <h5>Total:
+              <span class="ml-1 font-weight-bold text-danger">{{ cartTotal | currency }}</span>
+            </h5>
+            <br>
+            <button class="btn btn-warning btn-block" (click)="checkout()" [disabled]="btnDisabled">Checkout</button>
+          </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
