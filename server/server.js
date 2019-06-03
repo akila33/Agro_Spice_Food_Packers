@@ -31,12 +31,14 @@ const adminRoutes = require('./routes/admin-account');
 const userRoutes = require('./routes/account');
 const mainRoutes = require('./routes/main');
 const sellerRoutes = require('./routes/seller');
+const employerRoutes = require('./routes/employerRoutes')
 const productSearchRoutes = require('./routes/product-search');
 
 //express application using Routes from this application
 app.use('/api', mainRoutes);
 app.use('/api/admin-accounts', adminRoutes);
 app.use('/api/accounts', userRoutes);
+app.use('/api/employer', employerRoutes);
 app.use('/api/seller', sellerRoutes);
 app.use('/api/search', productSearchRoutes);
 

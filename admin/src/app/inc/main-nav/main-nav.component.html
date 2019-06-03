@@ -1,0 +1,44 @@
+<mat-sidenav-container  class="sidenav-container">
+  <mat-sidenav-content>
+    <!-- Admin Toolbar -->
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+        >
+        <!-- *ngIf="isHandset$ | async" -->
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Admin Dashboard</span>
+      <div class="col-md-9"></div>
+      <button mat-button (click)="onLogout()" *ngIf="isLoggedIn">Logout <mat-icon>exit_to_app</mat-icon></button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="true">
+
+    <mat-toolbar></mat-toolbar>
+    <mat-toolbar><img class="img" src="assets/img/logo.png" width=120px height=120px></mat-toolbar>
+    <br><br/><br/>
+    
+    <div class="wel">
+    <mat-nav-list>
+      <mat-list-item>
+        <a  [routerLink]="['/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
+         <p class="ex">Dashboard</p></a>
+      </mat-list-item>
+      <mat-list-item>
+        <a [routerLink]="['/manageEmployer']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_circle</mat-icon>
+          <p class="ex">Manage Users</p></a>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
+  </mat-sidenav>

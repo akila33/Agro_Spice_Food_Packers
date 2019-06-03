@@ -1,4 +1,4 @@
-// Account.JS file to maintain every users account details(SignUp,Login,Orders) and handle routes 
+// Account.JS file to maintain every users account details(SiginUp,Login,Orders) and handle routes 
 
 //Including the required packages and assigning it to Local Variables
 const router = require('express').Router();
@@ -43,6 +43,59 @@ router.post('/signup', (req, res, next) => {
   }
 
  });
+});
+
+router.get('/read',(req,res,next)=>{
+  User.find({},(err,users)=>{
+      if(err)
+          res.status(500).json({errmsg:err});
+      res.status(200).json({msg:users});
+  });
+});
+
+router.post('/create',(req,res,next)=>{
+  console.log(req.body);
+  var newUser =new User({
+      username : req.body.username,
+      fullname : req.body.fullname,
+      address : req.body.address,
+      city : req.body.city,
+      mobile : req.body.mobile,
+      email : req.body.email,
+      password: req.body.password
+  });
+  newUser.save((err,user)=> {
+      if(err)
+          res.status(500).json({errmsg:err});
+      res.status(200).json({msg:user});
+  });
+});
+
+router.delete('/delete/:id',(req,res,next)=>{
+  User.findOneAndRemove({_id:req.params.id},(err,employer)=>{
+      if(err)
+          res.status(500).json({errmsg:err});
+      res.status(200).json({msg:user});
+  })
+});
+
+router.put('/update',(req,res,next)=>{
+  User.findById(req.body._id,(err,user)=>{
+      if(err)
+          res.status(500).json({errmsg:err});
+          user.username = req.body.username,
+          user.fullname = req.body.fullname,
+          user.address = req.body.address,
+          user.city = req.body.city,
+          user.mobile = req.body.mobile,
+          user.email = req.body.email,
+          user.password=req.body.password
+      user.save((err,employer)=>{
+          if(err)
+              res.status(500).json({errmsg:err});
+          res.status(200).json({msg:employer});
+      });
+  });
 });
 
 //Function to facilitate Admin-Sign Up feature 

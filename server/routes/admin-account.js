@@ -105,6 +105,14 @@ router.route('/admin-profile')
       });
     });
   });
+ 
+  router.get('/get-admins',(req,res,next)=>{
+    Admin.find({},(err,admins)=>{
+        if(err)
+            res.status(500).json({errmsg:err});
+        res.status(200).json({msg:admins});
+    });
+  });
 
 
 //Exporting the module 
