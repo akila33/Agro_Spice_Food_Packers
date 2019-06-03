@@ -44,6 +44,7 @@ router.post('/admin-signup', (req, res, next) => {
 
 //Function to facilitate admin login feature
 router.post('/admin-login', (req, res, next) => {
+
   Admin.findOne({ email: req.body.email }, (err, admin) => {
     if (err) throw err;
 
@@ -104,8 +105,8 @@ router.route('/admin-profile')
       });
     });
   });
-
-router.get('/get-admins',(req,res,next)=>{
+ 
+  router.get('/get-admins',(req,res,next)=>{
     Admin.find({},(err,admins)=>{
         if(err)
             res.status(500).json({errmsg:err});

@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CustomerService } from 'src/app/services/customer.service';
-import { MatPaginator, MatTableDataSource, MatSort, MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-customers',
@@ -9,27 +9,39 @@ import { MatPaginator, MatTableDataSource, MatSort, MatDialog, MatDialogConfig }
 })
 export class CustomersComponent implements OnInit {
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
-  listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['name', 'email', 'address'];
-  @ViewChild(MatSort) sort: MatSort;
-  customers:any;
-
-  constructor(private customerService: CustomerService) { }
+  constructor(private dialogRef:MatDialogRef<CustomersComponent>,
+    private service:CustomerService,) { }
 
   ngOnInit() {
-    this.customerService.getAllCustomers().subscribe(data=>{
-      this.customers=data['msg'];
-      console.log(this.customers);
-    });
+  }
 
-    this.customerService.getAllCustomers().subscribe(
-      list => {
-        this.listData = new MatTableDataSource(list['msg']);
-        this.listData.sort = this.sort;
-        this.listData.paginator = this.paginator;
-      });
+  onClear() {
+    this.service.form.reset();
+    this.service.initializeFormGroup();
+  }
+
+  onSubmit() {
+    if (this.service.form.valid) {
+      if (this.service.form.get('_id').value){
+        this.service.updateCustomers(this.service.form.value).subscribe();
+        console.log("Update");
+        this.ngOnInit();
+      }
+      else{
+        this.service.addCustomers(this.service.form.value).subscribe();
+        console.log("Insert");
+        this.ngOnInit();
+      }
+      this.service.form.reset();
+      this.service.initializeFormGroup();
+      this.onClose();
+    }    
+  }
+
+  onClose() {
+    this.service.form.reset();
+    this.service.initializeFormGroup();
+    this.dialogRef.close();
   }
 
 }

@@ -50,9 +50,15 @@
          <p class="ex">Dashboard</p></a>
       </mat-list-item>
       <mat-list-item>
+        <a [routerLink]="['/manageAdmin']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_balance</mat-icon>
+          <p class="ex">Admin</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
         <a [routerLink]="['/manageEmployer']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_circle</mat-icon>
           <p class="ex">Employers</p></a>
       </mat-list-item>
+
 
       <mat-list-item>
         <a [routerLink]="['/product']" mat-list-item routerLinkActive="active-list-item"><mat-icon>add_shopping_cart</mat-icon>

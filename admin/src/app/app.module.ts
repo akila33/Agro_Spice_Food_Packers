@@ -18,6 +18,11 @@ import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './menus/product/product.component';
 import { CustomersComponent } from './menus/customers/customers.component';
 import { NotificationService } from './services/notification.service';
+import { ManageAdminComponent } from './menus/manage-admin/manage-admin.component';
+import { AdminComponent } from './menus/admin/admin.component';
+import { ProfileComponent } from './menus/home/profile/profile.component';
+import { UserCountComponent } from './menus/home/user-count/user-count.component';
+import { ManageCustomersComponent } from './manage-customers/manage-customers.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,12 @@ import { NotificationService } from './services/notification.service';
     EmployerComponent,
     LoginComponent,
     ProductComponent,
-    CustomersComponent
+    CustomersComponent,
+    ManageAdminComponent,
+    AdminComponent,
+    ProfileComponent,
+    UserCountComponent,
+    ManageCustomersComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +65,6 @@ import { NotificationService } from './services/notification.service';
   ],
   providers: [NotificationService],
   bootstrap: [AppComponent],
-  entryComponents:[EmployerComponent,SnackComponent]
+  entryComponents:[EmployerComponent,SnackComponent,AdminComponent,CustomersComponent]
 })
 export class AppModule { }

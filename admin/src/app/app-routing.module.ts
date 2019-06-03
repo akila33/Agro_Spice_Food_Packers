@@ -5,7 +5,8 @@ import { HomeComponent } from './menus/home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { ProductComponent } from './menus/product/product.component';
-import { CustomersComponent } from './menus/customers/customers.component';
+import { ManageAdminComponent } from './menus/manage-admin/manage-admin.component';
+import { ManageCustomersComponent } from './manage-customers/manage-customers.component';
 
 const routes: Routes = [
   {
@@ -18,12 +19,17 @@ const routes: Routes = [
   },
 
   {
+    path:'manageAdmin',component:ManageAdminComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
     path:'product',component:ProductComponent,
     canActivate: [AuthGuard]
   },
 
   {
-    path:'customers',component:CustomersComponent,
+    path:'customers',component:ManageCustomersComponent,
     canActivate: [AuthGuard]
   },
 

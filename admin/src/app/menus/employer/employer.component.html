@@ -45,8 +45,8 @@
           
         <mat-form-field>
           <input formControlName="password" matInput placeholder="Password*">
-          <mat-error *ngIf="service.form.controls['mobile'].errors?.required">This field is mandatory.</mat-error>
-          <mat-error *ngIf="service.form.controls['mobile'].errors?.minlength">Minimum 8 charactors needed.</mat-error>
+          <mat-error *ngIf="service.form.controls['email'].errors?.required">This field is mandatory.</mat-error>
+          <mat-error *ngIf="service.form.controls['email'].errors?.minlength">Minimum 8 charactors needed.</mat-error>
         </mat-form-field>
       
       <div class="button-row">

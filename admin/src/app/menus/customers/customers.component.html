@@ -1,46 +1,62 @@
-<div class="search-div">
-  <button mat-raised-button  (click)="onCreate()">
-    <mat-icon>add</mat-icon>Add
-  </button>
-  <mat-form-field class="search-form-field" floatLabel="never">
-    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
-    <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey"  (click)="onSearchClear()">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
-</div>
-
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="listData">
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-
-    <!-- Email Column -->
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="address">
-      <th mat-header-cell *matHeaderCellDef> Address </th>
-      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="actions">
-      <mat-header-cell *matHeaderCellDef></mat-header-cell>
-      <mat-cell *matCellDef="let row">
-        <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
-        <button mat-icon-button color="warn" (click)="remove(row._id)"><mat-icon>delete_outline</mat-icon></button>
-      </mat-cell>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-</div>
+<mat-card>
+  <mat-card-header>
+    <span>{{service.form.controls['_id'].value?"Modify Customer":"New Customer"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-card-header>
+  <mat-card-content>
+  <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+    <mat-grid-list cols="2" rowHeight="300px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <input type="hidden" formControlName="_id">
+          <mat-form-field>
+            <input formControlName="username" matInput placeholder="Username">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="fullname" matInput placeholder="FullName">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input formControlName="address" matInput placeholder="Address">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input formControlName="city" matInput placeholder="City">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <div class="controles-container">
+          <mat-form-field>
+            <input formControlName="mobile" matInput placeholder="Mobile">
+            <mat-error *ngIf="service.form.controls['mobile'].errors?.required">This field is mandatory.</mat-error>
+            <mat-error *ngIf="service.form.controls['mobile'].errors?.minlength">Minimum 8 charactors needed.</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input formControlName="email" matInput placeholder="Email">
+            <mat-error>This should be email address.</mat-error>
+          </mat-form-field>
+            
+          <mat-form-field>
+            <input formControlName="password" matInput placeholder="Password*">
+            <mat-error *ngIf="service.form.controls['email'].errors?.required">This field is mandatory.</mat-error>
+            <mat-error *ngIf="service.form.controls['email'].errors?.minlength">Minimum 8 charactors needed.</mat-error>
+          </mat-form-field>
+        
+        <div class="button-row">
+          <button mat-raised-button color="accent" type="submit" [disabled]="service.form.invalid">Submit</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+      </mat-grid-tile>
+  
+    </mat-grid-list>
+  </form>
+  </mat-card-content>
+  </mat-card>
