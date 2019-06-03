@@ -19,6 +19,14 @@ router.post('/signup', (req, res, next) => {
  user.picture = user.gravatar();
  user.isSeller = req.body.isSeller;
 
+ router.get('/read',(req,res,next)=>{
+  User.find({},(err,user)=>{
+      if(err)
+          res.status(500).json({errmsg:err});
+      res.status(200).json({msg:user});
+  });
+});
+
  User.findOne({ email: req.body.email }, (err, existingUser) => {
   if (existingUser) {
     res.json({

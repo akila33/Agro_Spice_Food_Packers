@@ -1,2 +1,69 @@
+<mat-sidenav-container  class="sidenav-container">
+  <mat-sidenav-content>
+    <!-- Admin Toolbar -->
+    <mat-toolbar color="black" *ngIf="tokenAdmin">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+        >
+        <!-- *ngIf="isHandset$ | async" -->
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Admin Dashboard</span>
+      <div class="col-md-9"></div>
+      <button mat-button (click)="onLogout()" *ngIf="tokenAdmin">Logout <mat-icon>exit_to_app</mat-icon></button>
+    </mat-toolbar>
+    
+    <!-- Add Content Here -->
+    <div class="container">
+      <router-outlet>
+        <div class="row" *ngIf="tokenAdmin">
+          <!-- dashboard image -->
+          <div class="col-md-12">
+              <mat-card class="example-card">
+              <img mat-card-image src="../../../assets/images/cover.jpg"  height="200px" alt="">
+              </mat-card>
+          </div>
+        </div>
+      </router-outlet>
+    </div>
 
-<router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="true"
+      *ngIf="tokenAdmin">
+
+    <mat-toolbar></mat-toolbar>
+    <mat-toolbar><img class="img" src="../assets/images/logo.png" width=160px height=160px></mat-toolbar>
+    <br><br/><br/>
+    
+    <div class="wel">
+    <mat-nav-list>
+      <mat-list-item>
+        <a  [routerLink]="['/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
+         <p class="ex">Dashboard</p></a>
+      </mat-list-item>
+      <mat-list-item>
+        <a [routerLink]="['/manageEmployer']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_circle</mat-icon>
+          <p class="ex">Employers</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/product']" mat-list-item routerLinkActive="active-list-item"><mat-icon>add_shopping_cart</mat-icon>
+          <p class="ex">Products</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/customers']" mat-list-item routerLinkActive="active-list-item"><mat-icon>accessibility</mat-icon>
+          <p class="ex">Customers</p></a>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </div>
+  </mat-sidenav>
