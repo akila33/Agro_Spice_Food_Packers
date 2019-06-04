@@ -23,6 +23,8 @@ import { AdminComponent } from './menus/admin/admin.component';
 import { ProfileComponent } from './menus/home/profile/profile.component';
 import { UserCountComponent } from './menus/home/user-count/user-count.component';
 import { ManageCustomersComponent } from './manage-customers/manage-customers.component';
+import { AddCategoryComponent } from './menus/add-category/add-category.component';
+import { AddProductComponent } from './menus/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ManageCustomersComponent } from './manage-customers/manage-customers.co
     AdminComponent,
     ProfileComponent,
     UserCountComponent,
-    ManageCustomersComponent
+    ManageCustomersComponent,
+    AddCategoryComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

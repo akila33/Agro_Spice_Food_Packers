@@ -7,6 +7,8 @@ import { AuthGuard } from './auth.guard';
 import { ProductComponent } from './menus/product/product.component';
 import { ManageAdminComponent } from './menus/manage-admin/manage-admin.component';
 import { ManageCustomersComponent } from './manage-customers/manage-customers.component';
+import { AddCategoryComponent } from './menus/add-category/add-category.component';
+import { AddProductComponent } from './menus/add-product/add-product.component';
 
 const routes: Routes = [
   {
@@ -35,6 +37,16 @@ const routes: Routes = [
 
   {
     path:'login',component:LoginComponent
+  },
+
+  {
+    path:'add-product',component:AddProductComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path:'add-category',component:AddCategoryComponent,
+    canActivate: [AuthGuard]
   }
 
 ];
