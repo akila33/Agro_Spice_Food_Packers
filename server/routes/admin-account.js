@@ -114,6 +114,30 @@ router.route('/admin-profile')
     });
   });
 
+  router.delete('/delete/:id',(req,res,next)=>{
+    Admin.findOneAndRemove({_id:req.params.id},(err,admin)=>{
+        if(err)
+            res.status(500).json({errmsg:err});
+        res.status(200).json({msg:admin});
+    })
+  });
+
+  router.put('/update',(req,res,next)=>{
+    Admin.findById(req.body._id,(err,admin)=>{
+        if(err)
+            res.status(500).json({errmsg:err});
+            admin.name = req.body.name,
+            employer.email = req.body.email,
+            admin.password=req.body.password
+        admin.save((err,admin)=>{
+            if(err)
+                res.status(500).json({errmsg:err});
+            res.status(200).json({msg:admin});
+        });
+    });
+});
+  
+
 
 //Exporting the module 
 module.exports = router;

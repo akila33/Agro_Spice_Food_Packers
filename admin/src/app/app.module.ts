@@ -51,7 +51,12 @@ import { AdminComponent } from './menus/admin/admin.component';
 import { ProfileComponent } from './menus/home/profile/profile.component';
 import { UserCountComponent } from './menus/home/user-count/user-count.component';
 import { ManageCustomersComponent } from './manage-customers/manage-customers.component';
+<<<<<<< HEAD
 >>>>>>> 8ee506d3346355699e225b2bf73eb67ac5361d99
+=======
+import { AddCategoryComponent } from './menus/add-category/add-category.component';
+import { AddProductComponent } from './menus/add-product/add-product.component';
+>>>>>>> 8ffab87f3ab5212f98be49c04311a26ddfd0f8d5
 
 @NgModule({
   declarations: [
@@ -68,7 +73,9 @@ import { ManageCustomersComponent } from './manage-customers/manage-customers.co
     AdminComponent,
     ProfileComponent,
     UserCountComponent,
-    ManageCustomersComponent
+    ManageCustomersComponent,
+    AddCategoryComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
