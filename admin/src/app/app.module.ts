@@ -25,6 +25,7 @@ import { UserCountComponent } from './menus/home/user-count/user-count.component
 import { ManageCustomersComponent } from './manage-customers/manage-customers.component';
 import { AddCategoryComponent } from './menus/add-category/add-category.component';
 import { AddProductComponent } from './menus/add-product/add-product.component';
+import { MessageComponent } from './menus/message/message.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AddProductComponent } from './menus/add-product/add-product.component';
     UserCountComponent,
     ManageCustomersComponent,
     AddCategoryComponent,
-    AddProductComponent
+    AddProductComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
