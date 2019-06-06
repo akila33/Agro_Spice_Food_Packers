@@ -1,0 +1,124 @@
+
+    <section id="address">
+      <br><br><br><br>
+      <div class="container p-5" id = "contentToConvert">
+        <div class="row">
+        <div class= "col-md-9">
+          <h5 class="display-4">Payment Invoice</h5>
+        </div>
+        <div class= "col-md-3">
+            <img src="./assets/img/logo.png" alt="logo" id="logo" style="width: 15%; height: 45%;"> <h5>Agro Spice Food Packers</h5>
+        </div>
+        </div>
+        <hr>
+        <h6>Product Details:  </h6>
+          
+          <div *ngIf="!product" class="m-auto">
+              <h1 class="text-center display-3 mt-5">
+                <i class="fa fa-spinner fa-spin"></i>
+              </h1>
+            </div>
+            <div *ngIf="product">
+              <div class="row">
+                <div class="col-lg-4">
+                  <img [src]="product.image" alt="productImage" class="image img-thumbnail">
+                </div>
+                <div class="col-lg-5">
+                  <div class="row">
+                    <div class="col-6">
+                      <h4>{{ product.title }}</h4>
+                      <p class="m-0">
+                        <small>by {{ product.owner.name }}</small>
+                      </p>
+                      <p class="m-0">
+                        <small class="text-muted">{{ product.category.name }}</small>
+                      </p>
+                    </div>
+                  </div>
+                  <hr>
+                  <p class="lead">{{ product.description }}</p>
+                </div>
+                <div class="col-lg-3">
+                  <div class="card bg-light">
+                    <div class="card-body">
+                      <h5 class="card-title">Price: {{ product.price | currency }}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+              </div>
+            </div>
+        <app-message></app-message>
+        <div *ngIf="!currentAddress" class="m-auto">
+          <h1 class="text-center display-3 mt-5">
+            <i class="fa fa-spinner fa-spin"></i>
+          </h1>
+        </div>
+        <div *ngIf="currentAddress" class="card bg-light">
+          <div class="card-body">
+            <table>
+              <tr>
+                <td>
+                  <h6>Customer Name:  </h6>
+                </td>
+                <td>
+                  <h6>{{data.user.name}}</h6>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h6>Shipping Address:  </h6>
+                </td>
+                <td>
+                  <h6>{{currentAddress.addr1}}, {{currentAddress.addr2}}, {{currentAddress.city}}</h6>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h6>State: </h6>
+                </td>
+                <td>
+                  <h6>{{currentAddress.state}}</h6>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h6>Postal Code: </h6>
+                </td>
+                <td>
+                  <h6>{{currentAddress.postalCode}}</h6>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h6>Country: </h6>
+                </td>
+                <td>
+                  <h6>{{currentAddress.country}}</h6>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class= "col-md-8">
+        </div>
+        <div class= "col-md-2">
+          <button type="button" class="btn btn-primary" (click)="captureScreen()">Download the invoice</button>
+        </div>
+        
+      </div>
+    </section>
+
+  
+  <ng-template #t let-fill="fill">
+    <span *ngIf="fill === 100" class="star full">&#9733;</span>
+    <span *ngIf="fill === 0" class="star">&#9733;</span>
+    <span *ngIf="fill < 100 && fill > 0" class="star">
+      <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+    </span>
+  </ng-template>
+  
+
