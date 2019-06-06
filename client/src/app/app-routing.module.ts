@@ -24,6 +24,7 @@ import { OrderdetailsComponent} from './orderdetails/orderdetails.component';
 import { RecipesComponent} from './recipes/recipes.component';
 import { ContactUsComponent} from './contact-us/contact-us.component';
 import { AboutUsComponent} from './about-us/about-us.component';
+import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
 
 import { AuthGuardService } from './auth-guard.service';
 
@@ -76,6 +77,10 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuardService],
+  },
+  {
+    path: 'pdf/:id',
+    component: HtmltopdfComponent,
   },
   {
     path: 'profile/settings',
