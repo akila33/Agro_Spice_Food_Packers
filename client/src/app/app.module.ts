@@ -39,6 +39,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
 
 
 //Module decorator specifying all the components used in the application 
@@ -65,6 +66,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     ContactUsComponent,
     AboutUsComponent,
     NavbarComponent,
+    HtmltopdfComponent,
   ],
   imports: [
     BrowserModule,
