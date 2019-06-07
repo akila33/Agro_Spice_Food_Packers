@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { CustomerService } from 'src/app/services/customer.service';
-import { EmployerService } from 'src/app/services/employer.service';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-user-count',
@@ -18,7 +18,7 @@ export class UserCountComponent implements OnInit {
 
   constructor(private adminService:AdminService,
     private customerService:CustomerService,
-    private employeeService:EmployerService
+    private employeeService:EmployeeService
     ) { }
 
   ngOnInit() {
@@ -30,7 +30,7 @@ export class UserCountComponent implements OnInit {
       this.customerCount=data["msg"].length;
     });
 
-    this.employeeService.getAllEmployers().subscribe(data=>{
+    this.employeeService.getEmployeeList().subscribe(data=>{
       this.employeeCount=data["msg"].length;
     });
 

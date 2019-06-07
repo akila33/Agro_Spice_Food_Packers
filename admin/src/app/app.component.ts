@@ -30,6 +30,7 @@ export class AppComponent {
   onLogout() {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
+    localStorage.removeItem("user");
   }
 
   get tokenAdmin() {

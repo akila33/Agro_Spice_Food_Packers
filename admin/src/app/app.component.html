@@ -16,7 +16,7 @@
       <div class="col-md-9"></div>
       <button mat-button (click)="onLogout()" *ngIf="tokenAdmin">Logout <mat-icon>exit_to_app</mat-icon></button>
     </mat-toolbar>
-    
+
     <!-- Add Content Here -->
     <div class="container">
       <router-outlet>
@@ -42,26 +42,16 @@
     <mat-toolbar></mat-toolbar>
     <mat-toolbar><img class="img" src="../assets/images/logo.png" width=160px height=160px></mat-toolbar>
     <br><br/><br/>
-    
+
     <div class="wel">
     <mat-nav-list>
       <mat-list-item>
         <a  [routerLink]="['/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
          <p class="ex">Dashboard</p></a>
       </mat-list-item>
-      <mat-list-item>
-        <a [routerLink]="['/manageAdmin']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_balance</mat-icon>
-          <p class="ex">Admin</p></a>
-      </mat-list-item>
 
       <mat-list-item>
-        <a [routerLink]="['/manageEmployer']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_circle</mat-icon>
-          <p class="ex">Employers</p></a>
-      </mat-list-item>
-
-
-      <mat-list-item>
-        <a [routerLink]="['/product']" mat-list-item routerLinkActive="active-list-item"><mat-icon>view_list</mat-icon>
+        <a [routerLink]="['/product']" mat-list-item routerLinkActive="active-list-item"><mat-icon>add_shopping_cart</mat-icon>
           <p class="ex">Products</p></a>
       </mat-list-item>
 
@@ -71,7 +61,7 @@
       </mat-list-item>
 
       <mat-list-item>
-        <a [routerLink]="['/add-category']" mat-list-item routerLinkActive="active-list-item"><mat-icon>add_circle_outline</mat-icon>
+        <a [routerLink]="['/add-category']" mat-list-item routerLinkActive="active-list-item"><mat-icon>add_shopping_cart</mat-icon>
           <p class="ex">Add Category</p></a>
       </mat-list-item>
 
@@ -79,6 +69,17 @@
         <a [routerLink]="['/customers']" mat-list-item routerLinkActive="active-list-item"><mat-icon>accessibility</mat-icon>
           <p class="ex">Customers</p></a>
       </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/manageEmployee']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_circle</mat-icon>
+          <p class="ex">Employees</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/view']" mat-list-item routerLinkActive="active-list-item"><mat-icon>add_shopping_cart</mat-icon>
+          <p class="ex"> Products </p></a>
+      </mat-list-item>
+
 
     </mat-nav-list>
   </div>

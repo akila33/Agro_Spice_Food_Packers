@@ -1,9 +1,8 @@
 const router = require('express').Router();
-//const Admin = require('../models/admin');
-const Employer = require('../models/employer');
+const Employee = require('../models/employee');
 
 router.get('/read',(req,res,next)=>{
-    Employer.find({},(err,employers)=>{
+    Employee.find({},(err,employers)=>{
         if(err)
             res.status(500).json({errmsg:err});
         res.status(200).json({msg:employers});
@@ -12,14 +11,13 @@ router.get('/read',(req,res,next)=>{
 
 router.post('/create',(req,res,next)=>{
     console.log(req.body);
-    var newEmployer =new Employer({
+    var newEmployer =new Employee({
         username : req.body.username,
         fullname : req.body.fullname,
         address : req.body.address,
-        city : req.body.city,
         mobile : req.body.mobile,
         email : req.body.email,
-        password: req.body.password
+        salary: req.body.salary
     });
     newEmployer.save((err,employer)=> {
         if(err)
@@ -29,7 +27,7 @@ router.post('/create',(req,res,next)=>{
 });
 
 router.delete('/delete/:id',(req,res,next)=>{
-    Employer.findOneAndRemove({_id:req.params.id},(err,employer)=>{
+    Employee.findOneAndRemove({_id:req.params.id},(err,employer)=>{
         if(err)
             res.status(500).json({errmsg:err});
         res.status(200).json({msg:employer});
@@ -37,16 +35,15 @@ router.delete('/delete/:id',(req,res,next)=>{
 });
 
 router.put('/update',(req,res,next)=>{
-    Employer.findById(req.body._id,(err,employer)=>{
+    Employee.findById(req.body._id,(err,employer)=>{
         if(err)
             res.status(500).json({errmsg:err});
             employer.username = req.body.username,
             employer.fullname = req.body.fullname,
             employer.address = req.body.address,
-            employer.city = req.body.city,
             employer.mobile = req.body.mobile,
             employer.email = req.body.email,
-            employer.password=req.body.password
+            employer.salary=req.body.salary
         employer.save((err,employer)=>{
             if(err)
                 res.status(500).json({errmsg:err});

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageEmployerComponent } from './manage-employer.component';
+import { ForumMessageComponent } from './forum-message.component';
 
-describe('ManageEmployerComponent', () => {
-  let component: ManageEmployerComponent;
-  let fixture: ComponentFixture<ManageEmployerComponent>;
+describe('ForumMessageComponent', () => {
+  let component: ForumMessageComponent;
+  let fixture: ComponentFixture<ForumMessageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageEmployerComponent ]
+      declarations: [ ForumMessageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageEmployerComponent);
+    fixture = TestBed.createComponent(ForumMessageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

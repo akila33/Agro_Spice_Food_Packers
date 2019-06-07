@@ -15,7 +15,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
   styleUrls: ['./add-product.component.scss']
 })
 
-//exporting PostProduct component for reuse 
+//exporting PostProduct component for reuse
 export class AddProductComponent implements OnInit {
 
   product = {
@@ -37,7 +37,7 @@ export class AddProductComponent implements OnInit {
     private rest: RestApiService,
     private router: Router,
     private fb: FormBuilder
-  ) { 
+  ) {
     this.rForm = fb.group({
       title: ['',[
         Validators.required,
@@ -128,7 +128,7 @@ export class AddProductComponent implements OnInit {
           form
         );
         data['success']
-          ? this.router.navigate(['/'])
+          ? this.router.navigate(['/profile/myproducts'])
             .then(() => this.data.success(data['message']))
             .catch(error => this.data.error(error))
           : this.data.error(data['message']);
@@ -140,4 +140,3 @@ export class AddProductComponent implements OnInit {
   }
 
 }
-

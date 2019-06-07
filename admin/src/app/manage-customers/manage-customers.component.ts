@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomerService } from 'src/app/services/customer.service';
 import { MatPaginator, MatTableDataSource, MatSort, MatDialog, MatDialogConfig } from '@angular/material';
 import { DialogService } from 'src/app/services/dialog.service';
-//import { CustomersComponent } from '../customers/customers.component';
+import { NotificationService } from 'src/app/services/notification.service';
+import { CustomersComponent } from 'src/app/menus/customers/customers.component';
 
 @Component({
   selector: 'app-manage-customers',
@@ -13,7 +14,7 @@ export class ManageCustomersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['name', 'email'];
+  displayedColumns: string[] = ['name', 'email','actions'];
   @ViewChild(MatSort) sort: MatSort;
   searchKey: string;
 
@@ -23,6 +24,7 @@ export class ManageCustomersComponent implements OnInit {
   constructor(
     private customerService: CustomerService,
     private dialog: MatDialog, 
+    private notificationService: NotificationService, 
     private dialogService: DialogService) { }
 
   ngOnInit() {
@@ -37,6 +39,19 @@ export class ManageCustomersComponent implements OnInit {
     });
   }
 
+  remove(id:string){
+    this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
+    .afterClosed().subscribe(res =>{
+      if(res){
+        this.customerService.deleteCustomers(id).subscribe(result => {
+        }, error => console.error(error));
+        this.notificationService.success('! Deleted successfully'); 
+      }
+      this.refresh();
+         
+    });
+  }
+
 
   onSearchClear() {
     this.searchKey = "";
@@ -46,18 +61,6 @@ export class ManageCustomersComponent implements OnInit {
   applyFilter() {
     this.listData.filter = this.searchKey.trim().toLowerCase();
   }
-
-  // onEdit(row){
-  //   console.log(row);
-  //   this.customerService.populateForm(row);
-  //   const dialogConfig = new MatDialogConfig();
-  //   dialogConfig.disableClose = true;
-  //   dialogConfig.autoFocus = true;
-  //   dialogConfig.width = "60%";
-  //   this.dialog.open(CustomersComponent,dialogConfig).afterClosed().subscribe(result=>{
-  //     this.refresh();
-  //   })
-  // }
 
   refresh(){
     this.customerService.getAllCustomers().subscribe(
