@@ -21,7 +21,11 @@ export class AdminService {
   }
 
   updateAdmin(admin){
-    return this.http.put("/update",admin);
+    return this.http.put("http://localhost:3030/api/admin-accounts/update-admins",admin);
+  }
+
+  deleteAdmin(id){
+    return this.http.delete("http://localhost:3030/api/admin-accounts/delete/"+id);
   }
 
   
@@ -30,7 +34,9 @@ export class AdminService {
     name: new FormControl('', Validators.required),
     email: new FormControl('',[Validators.required,Validators.email]),
     password: new FormControl('',[Validators.required,Validators.minLength(8)]),
-    __v: new FormControl('')
+    __v: new FormControl(''),
+    created:new FormControl(null),
+    picture:new FormControl(null)
   });
 
   initializeFormGroup() {
@@ -39,7 +45,9 @@ export class AdminService {
       name: '',
       email: '',
       password: '',
-      __v:0
+      __v:0,
+      created:null,
+      picture:null
     });
   }
 

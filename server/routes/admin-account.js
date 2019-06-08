@@ -127,7 +127,7 @@ router.route('/admin-profile')
         if(err)
             res.status(500).json({errmsg:err});
             admin.name = req.body.name,
-            employer.email = req.body.email,
+            admin.email = req.body.email,
             admin.password=req.body.password
         admin.save((err,admin)=>{
             if(err)

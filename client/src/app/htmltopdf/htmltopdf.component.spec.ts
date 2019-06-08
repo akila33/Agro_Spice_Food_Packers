@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageEmployerComponent } from './manage-employer.component';
+import { HtmltopdfComponent } from './htmltopdf.component';
 
-describe('ManageEmployerComponent', () => {
-  let component: ManageEmployerComponent;
-  let fixture: ComponentFixture<ManageEmployerComponent>;
+describe('HtmltopdfComponent', () => {
+  let component: HtmltopdfComponent;
+  let fixture: ComponentFixture<HtmltopdfComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageEmployerComponent ]
+      declarations: [ HtmltopdfComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageEmployerComponent);
+    fixture = TestBed.createComponent(HtmltopdfComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

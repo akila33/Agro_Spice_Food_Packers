@@ -29,7 +29,11 @@ import { OrderdetailsComponent} from './orderdetails/orderdetails.component';
 import { RecipesComponent} from './recipes/recipes.component';
 import { ContactUsComponent} from './contact-us/contact-us.component';
 import { AboutUsComponent} from './about-us/about-us.component';
+<<<<<<< HEAD
 >>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
+=======
+import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
+>>>>>>> 034cd3dbecf75126c1be90b53d4afda1f04b9d09
 
 import { AuthGuardService } from './auth-guard.service';
 
@@ -85,6 +89,10 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuardService],
+  },
+  {
+    path: 'pdf/:id',
+    component: HtmltopdfComponent,
   },
   {
     path: 'profile/settings',

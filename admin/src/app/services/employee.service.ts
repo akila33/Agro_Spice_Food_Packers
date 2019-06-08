@@ -5,37 +5,37 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployerService {
+export class EmployeeService {
 
-  constructor(private http:HttpClient) { }
-  API="http://localhost:3030/api/employer";
+  baseURL = "http://localhost:3030/api/employee";
 
-  getAllEmployers(){
-    return this.http.get(this.API+"/read");
+
+  constructor(private http: HttpClient) { }
+
+  postEmployee(emp) {
+    return this.http.post(this.baseURL+"/create" ,emp);
   }
 
-  addEmployer(employer){
-    return this.http.post(this.API+"/create",employer);
+  getEmployeeList() {
+    return this.http.get(this.baseURL+"/read");
   }
 
-  deleteEmployer(id){
-    return this.http.delete(this.API+"/delete/"+id);
+  putEmployee(emp) {
+    return this.http.put(this.baseURL + "/update", emp);
   }
 
-  updateEmployer(employer){
-    return this.http.put(this.API+"/update",employer);
+  deleteEmployee(_id: string) {
+    return this.http.delete(this.baseURL + "/delete/"+_id);
   }
 
-  
   form: FormGroup = new FormGroup({
     _id: new FormControl(null),
     username: new FormControl('', Validators.required),
     fullname: new FormControl('', Validators.required),
     address: new FormControl('', Validators.required),
-    city: new FormControl('',Validators.required),
     mobile: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
     email: new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('',[Validators.required,Validators.minLength(8)]),
+    salary: new FormControl('',Validators.required),
     __v: new FormControl('')
   });
 
@@ -45,10 +45,9 @@ export class EmployerService {
       username: '',
       fullname: '',
       address: '',
-      city: '',
       mobile: '',
       email: '',
-      password: '',
+      salary: '',
       __v:0
     });
   }

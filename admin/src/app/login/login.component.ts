@@ -36,11 +36,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value);
+    //console.log(this.form.value);
     this.service.adminAuth(this.form.value).subscribe(
       res => {
         console.log("Res",res);
         if(res['success']){
+          localStorage.setItem("user",JSON.stringify(this.form.value));
           localStorage.setItem('token', res['token']);
           this.router.navigateByUrl('/home');
           this.notificationService.success("Welcome to Admin Dashboard!");

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 //component specific details
 @Component({
@@ -29,11 +30,35 @@ export class PostProductComponent implements OnInit {
   categories: any;
   btnDisabled = false;
 
+  rForm: FormGroup;
+
   constructor(
     private data: DataService,
     private rest: RestApiService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private fb: FormBuilder
+  ) { 
+    this.rForm = fb.group({
+      title: ['',[
+        Validators.required,
+      ]],
+      price: ['',[
+        Validators.required,
+      ]],
+      categoryId: ['',[
+        Validators.required,
+      ]],
+      quantity: ['',[
+        Validators.required,
+      ]],
+      description: ['',[
+        Validators.required,
+      ]],
+      product_picture: ['',[
+        Validators.required,
+      ]]
+    });
+  }
 
   async ngOnInit() {
     try {

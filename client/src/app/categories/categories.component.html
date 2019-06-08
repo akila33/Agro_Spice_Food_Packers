@@ -16,8 +16,6 @@
   <div class="moving-clouds" style="background-image: url('assets/img/clouds.png'); "></div>
 </div>
 
-
-
 <section id="categories">
   <div class="container p-5">
     <app-message></app-message>
@@ -38,20 +36,6 @@
 >>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
       {{ category.name }}
       </a>
-    </div>
-    <hr style="margin-top: 15rem;">
-    <div *ngIf="data.user" class="card bg-light mt-5">
-      <div class="card-body">
-        <h4 class="card-title">Add New Category</h4>
-        <hr>
-        <div class="form">
-          <div class="form-group">
-            <label>Category</label>
-            <input type="text" name="newCategory" class="form-control" [(ngModel)]="newCategory">
-          </div>
-          <button type="button" class="btn btn-info" (click)="addCategory()" [disabled]="btnDisabled">Add Category</button>
-        </div>
-      </div>
     </div>
   </div>
 </section>
