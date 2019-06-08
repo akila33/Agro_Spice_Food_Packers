@@ -1,4 +1,5 @@
 <section id="registrationPage">
+  <br><br><br>
   <div class="container p-5">
     <div class="row mt-5">
       <div class="col-lg-4 offset-lg-4">
@@ -24,11 +25,11 @@
                 <label class="form-control-label">Confirm Password</label>
                 <input type="password" name="password1" class="form-control" [(ngModel)]="password1">
               </div>
-              <div class="form-check">
+              <!-- <div class="form-check">
                 <label class="form-check-label">
                   <input type="checkbox" name="isSeller" class="form-check-input" [(ngModel)]="isSeller"> Register as Seller
                 </label>
-              </div>
+              </div> -->
               <hr>
               <button type="button" class="btn btn-primary btn-block" (click)="register()" [disabled]="btnDisabled">Register</button>
             </form>

@@ -28,7 +28,7 @@ router.post('/create',(req,res,next)=>{
 });
 
 router.delete('/delete/:id',(req,res,next)=>{
-    if(req.body._id!=null){
+    if(req.params.id!=null){
         Message.findOneAndRemove({_id:req.params.id},(err,message)=>{
             if(err)
                 res.status(500).json({errmsg:err});
