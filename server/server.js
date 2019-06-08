@@ -33,7 +33,7 @@ const sellerRoutes = require('./routes/seller');
 const productSearchRoutes = require('./routes/product-search');
 const employeeRoutes = require('./routes/employeeController');
 const productViewRoutes = require('./routes/productView');
-
+const messageRoutes=require('./routes/message');
 
 //express application using Routes from this application
 app.use('/api', mainRoutes);
@@ -43,6 +43,8 @@ app.use('/api/seller', sellerRoutes);
 app.use('/api/search', productSearchRoutes);
 app.use('/api/employee', employeeRoutes);
 app.use('/api/product', productViewRoutes);
+app.use('/api/message', messageRoutes);
+
 
 
 //Setting up the port for server to run on
