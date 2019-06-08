@@ -252,7 +252,7 @@ async function sendMail(user,callback){
   });
 
   let mailOptions={
-    from:'"Agro Spice Food Packers"<saroja.pg@gmail.com>',//sender address
+    from:'"Agro Spice Food Packers"<agrospicy@gmail.com>',//sender address
     to:user.email, //reciever
     //to:"akila.rangoda@gmail.com",
     subject:"Order Details",

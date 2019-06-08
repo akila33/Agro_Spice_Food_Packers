@@ -2,6 +2,11 @@
 
 
 //including required services and modules 
+<<<<<<< HEAD
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from './data.service';
+=======
 import { Component, OnInit, ElementRef, Inject, Renderer, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { DataService } from './data.service';
@@ -10,6 +15,7 @@ import 'rxjs/add/operator/filter';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
 
 //Component specific details 
 @Component({
@@ -19,6 +25,43 @@ import { NavbarComponent } from './navbar/navbar.component';
 })
 
 //exporting the AppComponnet for reuse 
+<<<<<<< HEAD
+export class AppComponent {
+  searchTerm = '';
+  isCollapsed = true;
+
+  constructor(private router: Router, private data: DataService) {
+    this.data.cartItems = this.data.getCart().length;
+    this.data.getProfile();
+  }
+
+  get token() {
+    return localStorage.getItem('token');
+  }
+
+  collapse() {
+    this.isCollapsed = true;
+  }
+
+  closeDropdown(dropdown) {
+    dropdown.close();
+  }
+
+  logout() {
+    this.data.user = {};
+    this.data.cartItems = 0;
+    localStorage.clear();
+    this.router.navigate(['']);
+  }
+
+  search() {
+    if (this.searchTerm) {
+      this.collapse();
+      this.router.navigate(['search', { query: this.searchTerm }]);
+    }
+  }
+}
+=======
 export class AppComponent implements OnInit{
   private _router: Subscription;
   @ViewChild(NavbarComponent) navbar: NavbarComponent;
@@ -183,3 +226,4 @@ ngOnInit(){
 //       }
 //   }
 // }
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4

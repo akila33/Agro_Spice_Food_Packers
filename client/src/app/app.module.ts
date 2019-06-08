@@ -35,11 +35,17 @@ import { CartComponent } from './cart/cart.component';
 import { MyordersComponent } from './myorders/myorders.component';
 import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { NotificationsService } from './notifications.service';
+<<<<<<< HEAD
+=======
 import { RecipesComponent } from './recipes/recipes.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { NavbarComponent } from './navbar/navbar.component';
+<<<<<<< HEAD
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
+=======
 import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
+>>>>>>> 034cd3dbecf75126c1be90b53d4afda1f04b9d09
 
 
 //Module decorator specifying all the components used in the application 
@@ -62,11 +68,17 @@ import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
     CartComponent,
     MyordersComponent,
     OrderdetailsComponent,
+<<<<<<< HEAD
+=======
     RecipesComponent,
     ContactUsComponent,
     AboutUsComponent,
     NavbarComponent,
+<<<<<<< HEAD
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
+=======
     HtmltopdfComponent,
+>>>>>>> 034cd3dbecf75126c1be90b53d4afda1f04b9d09
   ],
   imports: [
     BrowserModule,

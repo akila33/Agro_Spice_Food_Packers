@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');         //body-parser to parse the JS
 const mongoose = require('mongoose');              //Mongoose package to connect to back-end mongoDB
 const cors = require('cors');                      //Package to connect middle-ware or cross-platform applications
 const config = require('./config');
+const nodemailer=require('nodemailer');
 
 const app = express();                              //wrapping the new express application in app variable
 
@@ -31,6 +32,7 @@ const userRoutes = require('./routes/account');
 const mainRoutes = require('./routes/main');
 const sellerRoutes = require('./routes/seller');
 const productSearchRoutes = require('./routes/product-search');
+const messageRoutes=require('./routes/message');
 const employeeRoutes = require('./routes/employeeController');
 const productViewRoutes = require('./routes/productView');
 
@@ -39,6 +41,8 @@ const productViewRoutes = require('./routes/productView');
 app.use('/api', mainRoutes);
 app.use('/api/admin-accounts', adminRoutes);
 app.use('/api/accounts', userRoutes);
+// app.use('/api/employer', employerRoutes);
+app.use('/api/message', messageRoutes);
 app.use('/api/seller', sellerRoutes);
 app.use('/api/search', productSearchRoutes);
 app.use('/api/employee', employeeRoutes);

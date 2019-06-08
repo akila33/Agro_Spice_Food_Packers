@@ -21,11 +21,15 @@
               "src/favicon.ico"
             ],
             "styles": [
+<<<<<<< HEAD
+              "src/styles.scss"
+=======
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss",
               "src/assets/sass/paper-kit.scss",
               "src/assets/css/demo.css",
               "src/assets/css/nucleo-icons.css"
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
             ],
             "scripts": []
           },
@@ -75,11 +79,15 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
+<<<<<<< HEAD
+              "src/styles.scss"
+=======
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss",
               "src/assets/sass/paper-kit.scss",
               "src/assets/css/demo.css",
               "src/assets/css/nucleo-icons.css"
+>>>>>>> e86f4600e85233f6f3219e4e7e021bb58faddcf4
             ],
             "assets": [
               "src/assets",
