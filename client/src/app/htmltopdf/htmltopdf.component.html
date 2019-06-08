@@ -11,52 +11,15 @@
         </div>
         </div>
         <hr>
-        <h6>Product Details:  </h6>
-          
-          <div *ngIf="!product" class="m-auto">
-              <h1 class="text-center display-3 mt-5">
-                <i class="fa fa-spinner fa-spin"></i>
-              </h1>
-            </div>
-            <div *ngIf="product">
-              <div class="row">
-                <div class="col-lg-4">
-                  <img [src]="product.image" alt="productImage" class="image img-thumbnail">
-                </div>
-                <div class="col-lg-5">
-                  <div class="row">
-                    <div class="col-6">
-                      <h4>{{ product.title }}</h4>
-                      <p class="m-0">
-                        <small>by {{ product.owner.name }}</small>
-                      </p>
-                      <p class="m-0">
-                        <small class="text-muted">{{ product.category.name }}</small>
-                      </p>
-                    </div>
-                  </div>
-                  <hr>
-                  <p class="lead">{{ product.description }}</p>
-                </div>
-                <div class="col-lg-3">
-                  <div class="card bg-light">
-                    <div class="card-body">
-                      <h5 class="card-title">Price: {{ product.price | currency }}</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-              </div>
-            </div>
-        <app-message></app-message>
+
+        <h5>Customer Details:  </h5>
+        <br><br>
         <div *ngIf="!currentAddress" class="m-auto">
           <h1 class="text-center display-3 mt-5">
             <i class="fa fa-spinner fa-spin"></i>
           </h1>
         </div>
-        <div *ngIf="currentAddress" class="card bg-light">
-          <div class="card-body">
+        <div *ngIf="currentAddress">
             <table>
               <tr>
                 <td>
@@ -99,9 +62,57 @@
                 </td>
               </tr>
             </table>
+
+      <app-message></app-message>
+        <br><br>
+        <h5>Product Details:  </h5>
+        <br><br>
+          
+            <div *ngIf="!product" class="m-auto">
+              <h1 class="text-center display-3 mt-5">
+                <i class="fa fa-spinner fa-spin"></i>
+              </h1>
+            </div>
+            <div *ngIf="product">
+                <table id ="customers">
+                    <tr>
+                      <th>
+                        <h6>Product Name  </h6>
+                      </th>
+                      <th>
+                        <h6>Product Owner  </h6>
+                      </th>
+                      <th>
+                        <h6>Product Category </h6>
+                      </th>
+                      <th>
+                        <h6>Description </h6>
+                      </th>
+                      <th>
+                        <h6>Price </h6>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h6>{{ product.title }}</h6>
+                      </td>
+                      <td>
+                        <h6>{{ product.owner.name }}</h6>
+                      </td>
+                      <td>
+                        <h6>{{ product.category.name }}</h6>
+                      </td>
+                      <td>
+                        <h6>{{ product.description }}</h6>
+                      </td>
+                      <td>
+                        <h6>{{ product.price | currency }}</h6>
+                      </td>
+                    </tr>
+                  </table>
+            </div>
           </div>
         </div>
-      </div>
       <div class="row">
         <div class= "col-md-8">
         </div>
