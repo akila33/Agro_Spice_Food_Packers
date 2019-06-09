@@ -40,6 +40,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
+import { ForumMessageComponent } from './forum-message/forum-message.component';
 
 
 //Module decorator specifying all the components used in the application 
@@ -67,6 +68,7 @@ import { HtmltopdfComponent } from './htmltopdf/htmltopdf.component';
     AboutUsComponent,
     NavbarComponent,
     HtmltopdfComponent,
+    ForumMessageComponent,
   ],
   imports: [
     BrowserModule,

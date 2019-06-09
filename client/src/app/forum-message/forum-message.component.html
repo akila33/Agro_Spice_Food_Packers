@@ -1,0 +1,31 @@
+<section id="registrationPage">
+<div class="container p-5">
+<div class="row mt-5">
+<div class="col-lg-4 offset-lg-4">
+<app-message></app-message>
+<div class="card bg-light">
+  <div class="card-body">
+    <h4 class="text-center">Forum Message</h4>
+    <hr>
+    <form>
+      <div class="form-group">
+        <label class="form-control-label">Sender</label>
+        <input placeholder="Your Email" type="email" name="sender" class="form-control" [(ngModel)]="sender">
+      </div>
+      <div class="form-group">
+        <label class="form-control-label">Reciever</label>
+        <input type="text" name="email" readonly class="form-control" [(ngModel)]="reciever">
+      </div>
+      <div class="form-group">
+        <label class="form-control-label">Message</label>
+        <textarea placeholder="Message" name="message" class="form-control" [(ngModel)]="message"></textarea>
+      </div>
+      <hr>
+      <button type="button" class="btn btn-primary btn-block" (click)="sendMessage()" [disabled]="btnDisabled">Send</button>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</section>
