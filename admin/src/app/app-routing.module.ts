@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './menus/home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
-import { ProductComponent } from './menus/product/product.component';
 import { ManageAdminComponent } from './menus/manage-admin/manage-admin.component';
 import { ManageCustomersComponent } from './manage-customers/manage-customers.component';
 import { ManageEmployeeComponent } from './menus/manage-employee/manage-employee.component';
@@ -20,11 +19,6 @@ const routes: Routes = [
 
   {
     path:'manageEmployee',component:ManageEmployeeComponent,
-    canActivate: [AuthGuard]
-  },
-
-  {
-    path:'product',component:ProductComponent,
     canActivate: [AuthGuard]
   },
 

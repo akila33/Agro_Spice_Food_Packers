@@ -46,28 +46,8 @@
     <div class="wel">
     <mat-nav-list>
       <mat-list-item>
-        <a  [routerLink]="['/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
+        <a  [routerLink]="['/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>dashboard</mat-icon>
          <p class="ex">Dashboard</p></a>
-      </mat-list-item>
-
-      <mat-list-item>
-        <a [routerLink]="['/product']" mat-list-item routerLinkActive="active-list-item"><mat-icon>add_shopping_cart</mat-icon>
-          <p class="ex">Products</p></a>
-      </mat-list-item>
-
-      <mat-list-item>
-        <a [routerLink]="['/add-product']" mat-list-item routerLinkActive="active-list-item"><mat-icon>add_shopping_cart</mat-icon>
-          <p class="ex">Add Product</p></a>
-      </mat-list-item>
-
-      <mat-list-item>
-        <a [routerLink]="['/add-category']" mat-list-item routerLinkActive="active-list-item"><mat-icon>add_shopping_cart</mat-icon>
-          <p class="ex">Add Category</p></a>
-      </mat-list-item>
-
-      <mat-list-item>
-        <a [routerLink]="['/customers']" mat-list-item routerLinkActive="active-list-item"><mat-icon>accessibility</mat-icon>
-          <p class="ex">Customers</p></a>
       </mat-list-item>
 
       <mat-list-item>
@@ -76,9 +56,25 @@
       </mat-list-item>
 
       <mat-list-item>
-        <a [routerLink]="['/view']" mat-list-item routerLinkActive="active-list-item"><mat-icon>add_shopping_cart</mat-icon>
-          <p class="ex"> Products </p></a>
+        <a [routerLink]="['/view']" mat-list-item routerLinkActive="active-list-item"><mat-icon>store</mat-icon>
+        <p class="ex"> Products </p></a>
       </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/add-product']" mat-list-item routerLinkActive="active-list-item"><mat-icon>add_shopping_cart</mat-icon>
+          <p class="ex">Add Product</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/add-category']" mat-list-item routerLinkActive="active-list-item"><mat-icon>dns</mat-icon>
+          <p class="ex">Add Category</p></a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/customers']" mat-list-item routerLinkActive="active-list-item"><mat-icon>accessibility</mat-icon>
+          <p class="ex">Customers</p></a>
+      </mat-list-item>
+
 
 
     </mat-nav-list>

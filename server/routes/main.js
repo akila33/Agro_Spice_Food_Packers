@@ -197,7 +197,7 @@ router.route('/categories')
 //Function to facilitate payment functionality  using STRIPE API 
 router.post('/payment', checkJWT, (req, res, next) => {
   const stripeToken = req.body.stripeToken;
-  const currentCharges = Math.round(req.body.totalPrice);
+  const currentCharges = Math.round(req.body.totalPrice * 100);
 
   stripe.customers
     .create({
@@ -206,7 +206,7 @@ router.post('/payment', checkJWT, (req, res, next) => {
     .then(function(customer) {
       return stripe.charges.create({
         amount: currentCharges,
-        currency: 'eur',
+        currency: 'usd',
         customer: customer.id
       });
     })
@@ -252,7 +252,7 @@ async function sendMail(user,callback){
   });
 
   let mailOptions={
-    from:'"Agro Spice Food Packers"<agrospicy@gmail.com>',//sender address
+    from:'"Agro Spice Food Packers"<saroja.pg@gmail.com>',//sender address
     to:user.email, //reciever
     //to:"akila.rangoda@gmail.com",
     subject:"Order Details",

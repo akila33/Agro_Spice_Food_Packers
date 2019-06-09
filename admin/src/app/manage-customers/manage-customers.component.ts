@@ -18,7 +18,7 @@ export class ManageCustomersComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   searchKey: string;
 
-  customers:Array<any>;
+  customers:any;
   customerObj=[];
 
   constructor(
@@ -30,13 +30,16 @@ export class ManageCustomersComponent implements OnInit {
   ngOnInit() {
     this.customerService.getAllCustomers().subscribe(data=>{
       this.customers=data['msg'];
-      //console.log(this.customers);
+      console.log(this.customers);
       this.createCusWithAddress(this.customers);
-      console.log(this.customerObj);
-      this.listData = new MatTableDataSource(this.customerObj);
-      this.listData.sort = this.sort;
-      this.listData.paginator = this.paginator;
     });
+
+    this.customerService.getAllCustomers().subscribe(
+      list => {
+        this.listData = new MatTableDataSource(list['msg']);
+        this.listData.sort = this.sort;
+        this.listData.paginator = this.paginator;
+      });
   }
 
   remove(id:string){
@@ -51,7 +54,6 @@ export class ManageCustomersComponent implements OnInit {
          
     });
   }
-
 
   onSearchClear() {
     this.searchKey = "";

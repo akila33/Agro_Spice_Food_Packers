@@ -13,7 +13,6 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { HomeComponent } from './menus/home/home.component';
 import { SnackComponent } from './snack/snack.component';
 import { LoginComponent } from './login/login.component';
-import { ProductComponent } from './menus/product/product.component';
 import { CustomersComponent } from './menus/customers/customers.component';
 import { NotificationService } from './services/notification.service';
 import { ManageAdminComponent } from './menus/manage-admin/manage-admin.component';
@@ -40,7 +39,6 @@ import { MyProductsComponent } from './menus/my-products/my-products.component';
     HomeComponent,
     SnackComponent,
     LoginComponent,
-    ProductComponent,
     CustomersComponent,
     ManageAdminComponent,
     AdminComponent,

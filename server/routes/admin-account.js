@@ -106,7 +106,6 @@ router.route('/admin-profile')
     });
   });
  
-  //Get all Admins list
   router.get('/get-admins',(req,res,next)=>{
     Admin.find({},(err,admins)=>{
         if(err)
@@ -114,31 +113,6 @@ router.route('/admin-profile')
         res.status(200).json({msg:admins});
     });
   });
-
-  //Delete Admin
-  router.delete('/delete/:id',(req,res,next)=>{
-    Admin.findOneAndRemove({_id:req.params.id},(err,admin)=>{
-        if(err)
-            res.status(500).json({errmsg:err});
-        res.status(200).json({msg:admin});
-    })
-  });
-
-  //Update Admin
-  router.put('/update',(req,res,next)=>{
-    Admin.findById(req.body._id,(err,admin)=>{
-        if(err)
-            res.status(500).json({errmsg:err});
-            admin.name = req.body.name,
-            admin.email = req.body.email,
-            admin.password=req.body.password
-        admin.save((err,admin)=>{
-            if(err)
-                res.status(500).json({errmsg:err});
-            res.status(200).json({msg:admin});
-        });
-    });
-});
 
 
 //Exporting the module 

@@ -21,7 +21,7 @@ export class AdminService {
   }
 
   updateAdmin(admin){
-    return this.http.put("http://localhost:3030/api/admin-accounts/update-admins",admin);
+    return this.http.put("http://localhost:3030/api/admin-accounts/update",admin);
   }
 
   deleteAdmin(id){
