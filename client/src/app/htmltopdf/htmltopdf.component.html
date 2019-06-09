@@ -71,8 +71,6 @@
                 <i class="fa fa-spinner fa-spin"></i>
               </h1>
             </div>
-            <div *ngIf="products && products.length">
-                <div *ngFor="let product of products" class="product">
                 <table id ="customers">
                     <tr>
                       <th>
@@ -94,6 +92,8 @@
                         <h6>Price </h6>
                       </th>
                     </tr>
+                <div *ngIf="products && products.length">
+                  <div *ngFor="let product of products" class="product">
                     <tr>
                       <td>
                         <h6>{{ product['product'].title }}</h6>
@@ -114,9 +114,9 @@
                         <h6>{{ product['product'].price | currency }}</h6>
                       </td>
                     </tr>
-                  </table>
                   </div>
-            </div>
+                </div>
+                  </table>
           </div>
         </div>
       <div class="row">
