@@ -21,8 +21,10 @@ import { Validators, FormBuilder } from '@angular/forms';
 export class CartComponent implements OnInit {
   btnDisabled = false;
   handler: any;
+  bill:any;
 
   quantities = [];
+  itemsList=[];
 
   constructor(
     private data: DataService,
@@ -73,7 +75,7 @@ export class CartComponent implements OnInit {
     });
     
     this.userProfile=JSON.parse(localStorage.getItem('userProfile'));
-    console.log(this.userProfile);
+    //console.log(this.userProfile);
     this.handler = StripeCheckout.configure({
       key: environment.stripeKey,
       image: 'assets/img/logo.png',
@@ -88,6 +90,12 @@ export class CartComponent implements OnInit {
           });
         });
         try {
+          this.notificationService.sendEmail(this.bill).
+            subscribe(data => {
+              console.log(data);
+            }, error => {
+              console.error(error, "error");
+            });
           const data = await this.rest.post(
             'http://localhost:3030/api/payment',
             {
@@ -99,6 +107,8 @@ export class CartComponent implements OnInit {
           data['success']
             ? (this.data.clearCart(), this.data.success('Purchase Successful.'))
             : this.data.error(data['message']);
+            
+
         } catch (error) {
           this.data.error(error['message']);
         }
@@ -136,15 +146,24 @@ export class CartComponent implements OnInit {
           },
         });
         console.log(this.infoForm.value);
-        // ........... Calling to the Email service
-        this.notificationService.sendEmail(this.infoForm.value).
-        subscribe(data => {
-          let msg = "Notification Sent to Email!"
-          //alert(msg);
-          // console.log(data, "success");
-        }, error => {
-          console.error(error, "error");
+        //console.log(this.cartItems);
+        
+        this.cartItems.forEach(element => {
+          const cartData={
+            item:element["title"],
+            price:element["price"]
+          };
+          this.itemsList.push(cartData);
         });
+        //console.log("Item List ",this.itemsList.length);
+        // ........... Calling to the Email service
+        this.bill={
+          name:this.infoForm.value['name'],
+          email:this.infoForm.value['email'],
+          items:this.itemsList
+        }
+        //console.log("Bill " ,bill);
+
       } else {
         this.btnDisabled = false;
       }

@@ -251,13 +251,26 @@ async function sendMail(user,callback){
     }
   });
 
+  console.log(user.items);
+  let i=0;
+  st="";
+  let total=0;
+  while(i<user.items.length){
+    st+=user.items[i]['item']+" -> Rs."+user.items[i]["price"]+"<br/>"
+    total+=user.items[i]["price"];
+    i++;
+  }
+
   let mailOptions={
-    from:'"Agro Spice Food Packers"<saroja.pg@gmail.com>',//sender address
+    from:'"Agro Spice Food Packers"<agrospicy@gmail.com>',//sender address
     to:user.email, //reciever
     //to:"akila.rangoda@gmail.com",
     subject:"Order Details",
-    html: `<h2>Hey ${user.name}</h2><br/>
-    <h4>Thank you for shopping with us!</h4>`
+    html: `<h3>${st}</h3>
+    ================================<br/>
+    <h3>Total : Rs.${total}</h3></br>
+    ================================<br/>
+    <h4>Thank you for shopping with us! ${user.name}</h4>`
   }
 
   let info=await transporter.sendMail(mailOptions);
