@@ -124,27 +124,26 @@ export class CartComponent implements OnInit {
   }
 
   checkout() {
-    //console.log(this.infoForm.value);
-    //........... Calling to the Email service
-    // this.notificationService.sendEmail(this.infoForm.value).
-    // subscribe(data => {
-    //   let msg = "Notification Sent to Email!"
-    //   alert(msg);
-    //   // console.log(data, "success");
-    // }, error => {
-    //   console.error(error, "error");
-    // });
-
     this.btnDisabled = true;
     try {
       if (this.validate()) {
         this.handler.open({
-          name: 'Amazono',
+          name: 'Agro Spice Food Packers',
           description: 'Checkout Payment',
-          amount: this.cartTotal * 100,
+          // amount: this.cartTotal * 100,
           closed: () => {
             this.btnDisabled = false;
           },
+        });
+        console.log(this.infoForm.value);
+        // ........... Calling to the Email service
+        this.notificationService.sendEmail(this.infoForm.value).
+        subscribe(data => {
+          let msg = "Notification Sent to Email!"
+          //alert(msg);
+          // console.log(data, "success");
+        }, error => {
+          console.error(error, "error");
         });
       } else {
         this.btnDisabled = false;
