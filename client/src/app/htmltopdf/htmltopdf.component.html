@@ -65,19 +65,20 @@
         <br><br>
         <h5>Product Details:  </h5>
         <br><br>
-          
+        <app-message></app-message>
             <div *ngIf="!product" class="m-auto">
               <h1 class="text-center display-3 mt-5">
                 <i class="fa fa-spinner fa-spin"></i>
               </h1>
             </div>
             <div *ngIf="products && products.length">
+                <div *ngFor="let product of products" class="product">
                 <table id ="customers">
                     <tr>
                       <th>
                         <h6>Product Name  </h6>
                       </th>
-                      <th>
+                      <!-- <th>
                         <h6>Product Owner  </h6>
                       </th>
                       <th>
@@ -85,7 +86,7 @@
                       </th>
                       <th>
                         <h6>Description </h6>
-                      </th>
+                      </th> -->
                       <th>
                         <h6>Quantity </h6>
                       </th>
@@ -97,7 +98,7 @@
                       <td>
                         <h6>{{ product['product'].title }}</h6>
                       </td>
-                      <td>
+                      <!-- <td>
                         <h6>{{ product['product'].owner.name }}</h6>
                       </td>
                       <td>
@@ -105,7 +106,7 @@
                       </td>
                       <td>
                         <h6>{{ product['product'].description }}</h6>
-                      </td>
+                      </td> -->
                       <td>
                         <h6>{{ product.quantity }}</h6>
                       </td>
@@ -114,6 +115,7 @@
                       </td>
                     </tr>
                   </table>
+                  </div>
             </div>
           </div>
         </div>
