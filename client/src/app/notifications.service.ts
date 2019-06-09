@@ -14,4 +14,8 @@ export class NotificationsService {
     return this.http.post<Iinfo>('http://localhost:3030/api/sendMail',obj);
   }
 
+  sendMessage(data){
+    return this.http.post("http://localhost:3030/api/message/create",data);
+  }
+
 }

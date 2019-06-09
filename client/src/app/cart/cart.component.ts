@@ -9,7 +9,7 @@ import { RestApiService } from '../rest-api.service';
 import { Router } from '@angular/router';
 import { NotificationsService } from '../notifications.service';
 import { Validators, FormBuilder } from '@angular/forms';
-
+import swal from 'sweetalert';
 //componnet files specifications 
 @Component({
   selector: 'app-cart',
@@ -92,7 +92,11 @@ export class CartComponent implements OnInit {
         try {
           this.notificationService.sendEmail(this.bill).
             subscribe(data => {
-              console.log(data);
+              swal({
+                title: "Success!",
+                text: "Purchase Notification is sent to your email!",
+                icon: "success",
+              });
             }, error => {
               console.error(error, "error");
             });
