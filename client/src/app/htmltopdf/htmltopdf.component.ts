@@ -17,6 +17,7 @@ export class HtmltopdfComponent implements OnInit {
   btnDisabled = false;
   currentAddress: any;
   product: any;
+  products: any;
   
     constructor(
       private activatedRoute: ActivatedRoute,
@@ -26,18 +27,23 @@ export class HtmltopdfComponent implements OnInit {
     ) {}
   
   
-    async ngOnInit() {;
+    async ngOnInit() {
 
       this.activatedRoute.params.subscribe(res => {
-        this.rest
-          .get(`http://localhost:3030/api/product/${res['id']}`)
-          .then(data => {
-            data['success']
-              ? (this.product = data['product'])
-              : this.router.navigate(['/']);
-          })
-          .catch(error => this.data.error(error['message']));
+        this.orderId = res['id'];
+        this.getProducts();
       });
+
+      // this.activatedRoute.params.subscribe(res => {
+      //   this.rest
+      //     .get(`http://localhost:3030/api/product/${res['id']}`)
+      //     .then(data => {
+      //       data['success']
+      //         ? (this.product = data['product'])
+      //         : this.router.navigate(['/']);
+      //     })
+      //     .catch(error => this.data.error(error['message']));
+      // });
 
       try {
         const data = await this.rest.get(
@@ -53,6 +59,22 @@ export class HtmltopdfComponent implements OnInit {
           );
         }
         this.currentAddress = data['address'];
+      } catch (error) {
+        this.data.error(error['message']);
+      }
+    }
+
+    async getProducts(event?: any) {
+      if (event) {
+        this.products = null;
+      }
+      try {
+        const data = await this.rest.get(
+          `http://localhost:3030/api/accounts/orders/${this.orderId}`);
+        data['success']
+              ? (this.products = data['order'])
+              : this.data.error(data['message']);
+       this.products=this.products.products;       
       } catch (error) {
         this.data.error(error['message']);
       }
