@@ -43,10 +43,13 @@
                 <h5>
                   <a routerLink="/product/{{ product.objectID }}">{{ product.title }}</a>
                 </h5>
-                <p>
+                <!-- <p>
                   <small>by {{ product.owner.name }}</small>
-                </p>
-                <p>{{ product.price | currency }}</p>
+                </p> -->
+                <p>Rs.{{ product.price }}</p>
+                <!-- <p>
+                  <small class="text-muted">{{ product.category.name }}</small>
+                </p> -->
               </div>
               <div class="col-md-6">
                 <ngb-rating [(rate)]="product.averageRating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>

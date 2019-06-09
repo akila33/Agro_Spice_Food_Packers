@@ -197,7 +197,7 @@ router.route('/categories')
 //Function to facilitate payment functionality  using STRIPE API 
 router.post('/payment', checkJWT, (req, res, next) => {
   const stripeToken = req.body.stripeToken;
-  const currentCharges = Math.round(req.body.totalPrice * 100);
+  const currentCharges = Math.round(req.body.totalPrice);
 
   stripe.customers
     .create({
