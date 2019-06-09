@@ -31,7 +31,6 @@ import { MessageComponent } from './message/message.component';
 import { MyProductsComponent } from './menus/my-products/my-products.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +52,7 @@ import { MyProductsComponent } from './menus/my-products/my-products.component';
     AddCategoryComponent,
     AddProductComponent,
     MessageComponent,
-    MyProductsComponent,
+    MyProductsComponent
 
   ],
   imports: [

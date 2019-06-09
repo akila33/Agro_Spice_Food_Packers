@@ -19,7 +19,7 @@ details=require('../details.json');
 
 //Function to facilitate obtaining the product information 
 router.get('/products', (req, res, next) => {
-  const perPage = 10;
+  const perPage = 12;
   const page = req.query.page;
   async.parallel([
     function(callback) {

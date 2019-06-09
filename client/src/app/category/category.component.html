@@ -39,7 +39,7 @@
                 <p>
                   <small class="text-muted">{{ product.category.id }}</small>
                 </p>
-                <p>{{ product.price | currency }}</p>
+                <p>Rs.{{ product.price }}</p>
               </div>
               <div class="col-md-6">
                 <ngb-rating [(rate)]="product.averageRating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { ProductService } from 'src/app/product.service';
 
 @Component({
   selector: 'app-usage-chart',
@@ -9,30 +10,73 @@ import { Chart } from 'chart.js';
 export class UsageChartComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private productService:ProductService) { }
 
   report:any;
   labels : string[] = [];
   counts: number[]=[];
+  ratings:number[]=[];
 
   LineChart=[];
+  BarChart=[];
 
   ngOnInit() {
-    this.labels=["Jan","Feb","Mar","Apr","May","june"];
-    this.counts=[10,5,8,7,3,14];
-    this.generateGraph();
+    this.productService.getProducts().subscribe(data=>{
+      //console.log(data["products"]);
+      let i=0;
+      while(i<data["products"].length){
+        this.labels.push(data["products"][i]["title"]);
+        this.counts.push(data["products"][i]["price"]);
+        this.ratings.push(data["products"][i]["averageRating"]);
+        i++;
+      }
+      this.generateGraph();
+      this.generateGraphLine();
+    });
   
   }
 
   generateGraph(){
-    const LineChart=new Chart('linechart',{
+    const BarChart=new Chart('linechart',{
+      type:'bar',
+      data:{
+        labels:this.labels,
+
+        datasets:[{
+          label:"Product Price Variation",
+          data:this.counts,
+          fill:false,
+          lineTension:0.2,
+          borderColor:"green",
+          borderWidth:1,
+        }]
+      },
+
+      options:{
+        title:{
+          text:"Price variation",
+          display:true
+        },
+        scales:{
+          yAxes:[{
+            ticks:{
+              beginAtZero:true
+            }
+          }]
+        }
+      }
+    });
+  }
+
+  generateGraphLine(){
+    const LineChart=new Chart('barchart',{
       type:'line',
       data:{
         labels:this.labels,
 
         datasets:[{
-          label:"Completed Invoices",
-          data:this.counts,
+          label:"",
+          data:this.ratings,
           fill:false,
           lineTension:0.2,
           borderColor:"red",
@@ -42,7 +86,7 @@ export class UsageChartComponent implements OnInit {
 
       options:{
         title:{
-          text:"Invoices History",
+          text:"Average Ratings",
           display:true
         },
         scales:{
