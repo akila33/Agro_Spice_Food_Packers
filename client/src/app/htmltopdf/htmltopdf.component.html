@@ -62,8 +62,6 @@
                 </td>
               </tr>
             </table>
-
-      <app-message></app-message>
         <br><br>
         <h5>Product Details:  </h5>
         <br><br>
@@ -73,7 +71,7 @@
                 <i class="fa fa-spinner fa-spin"></i>
               </h1>
             </div>
-            <div *ngIf="product">
+            <div *ngIf="products && products.length">
                 <table id ="customers">
                     <tr>
                       <th>
@@ -89,24 +87,30 @@
                         <h6>Description </h6>
                       </th>
                       <th>
+                        <h6>Quantity </h6>
+                      </th>
+                      <th>
                         <h6>Price </h6>
                       </th>
                     </tr>
                     <tr>
                       <td>
-                        <h6>{{ product.title }}</h6>
+                        <h6>{{ product['product'].title }}</h6>
                       </td>
                       <td>
-                        <h6>{{ product.owner.name }}</h6>
+                        <h6>{{ product['product'].owner.name }}</h6>
                       </td>
                       <td>
-                        <h6>{{ product.category.name }}</h6>
+                        <h6>{{ product['product'].category.name }}</h6>
                       </td>
                       <td>
-                        <h6>{{ product.description }}</h6>
+                        <h6>{{ product['product'].description }}</h6>
                       </td>
                       <td>
-                        <h6>{{ product.price | currency }}</h6>
+                        <h6>{{ product['product'].quantity }}</h6>
+                      </td>
+                      <td>
+                        <h6>{{ product['product'].price | currency }}</h6>
                       </td>
                     </tr>
                   </table>
