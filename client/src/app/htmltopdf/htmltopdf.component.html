@@ -1,6 +1,6 @@
 
     <section id="address">
-      <br><br><br><br>
+      <br><br>
       <div class="container p-5" id = "contentToConvert">
         <div class="row">
         <div class= "col-md-9">
@@ -62,29 +62,23 @@
                 </td>
               </tr>
             </table>
+          </div>
         <br><br>
         <h5>Product Details:  </h5>
-        <br><br>
         <app-message></app-message>
             <div *ngIf="!product" class="m-auto">
-              <h1 class="text-center display-3 mt-5">
-                <i class="fa fa-spinner fa-spin"></i>
-              </h1>
+              <!-- <h1 class="text-center display-3 mt-5"> -->
+                <i class="fa"></i>
+              <!-- </h1> -->
             </div>
+            <div *ngIf="products && products.length">
+              <!-- <div > -->
                 <table id ="customers">
                     <tr>
                       <th>
                         <h6>Product Name  </h6>
                       </th>
-                      <!-- <th>
-                        <h6>Product Owner  </h6>
-                      </th>
-                      <th>
-                        <h6>Product Category </h6>
-                      </th>
-                      <th>
-                        <h6>Description </h6>
-                      </th> -->
+                      
                       <th>
                         <h6>Quantity </h6>
                       </th>
@@ -92,21 +86,10 @@
                         <h6>Price </h6>
                       </th>
                     </tr>
-                <div *ngIf="products && products.length">
-                  <div *ngFor="let product of products" class="product">
-                    <tr>
+                    <tr *ngFor="let product of products" class="product">
                       <td>
                         <h6>{{ product['product'].title }}</h6>
                       </td>
-                      <!-- <td>
-                        <h6>{{ product['product'].owner.name }}</h6>
-                      </td>
-                      <td>
-                        <h6>{{ product['product'].category.name }}</h6>
-                      </td>
-                      <td>
-                        <h6>{{ product['product'].description }}</h6>
-                      </td> -->
                       <td>
                         <h6>{{ product.quantity }}</h6>
                       </td>
@@ -114,18 +97,17 @@
                         <h6>{{ product['product'].price | currency }}</h6>
                       </td>
                     </tr>
-                  </div>
-                </div>
                   </table>
-          </div>
+                <!-- </div> -->
+              </div>
+          
         </div>
       <div class="row">
         <div class= "col-md-8">
         </div>
         <div class= "col-md-2">
           <button type="button" class="btn btn-primary" (click)="captureScreen()">Download the invoice</button>
-        </div>
-        
+        </div>    
       </div>
     </section>
 
