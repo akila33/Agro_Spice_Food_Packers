@@ -12,8 +12,10 @@ Agro Spice Food Packers web application using Angular | Node.js | Express.js | M
 ### Architecture
 
 -   Web Application uses a Client-Server Architecture with:
-    -   Client components developed using Angular 4 - Folder - '/client'
+    -   Client components developed using Angular 7 - Folder - '/client'
+    -   Admin components developed using Angular 7 - Folder - '/admin'
     -   Server Restful Api's developed using Node.js, Express.js, MongoDB - Folder - '/server'
+    
 ## Steps for Project Execution :
 
 ##### Client Install
@@ -22,7 +24,14 @@ Agro Spice Food Packers web application using Angular | Node.js | Express.js | M
 cd client
 npm install
 ng serve -o
+```
 
+##### Admin Install
+
+```
+cd admin
+npm install
+ng serve -o
 ```
 
 ##### Server Install
