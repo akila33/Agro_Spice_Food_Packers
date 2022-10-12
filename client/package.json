@@ -26,7 +26,7 @@
     "core-js": "^2.4.1",
     "html2canvas": "^1.0.0-rc.3",
     "jquery": "^3.4.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.5.1",
     "jw-bootstrap-switch-ng2": "2.0.1",
     "ng2-nouislider": "1.7.12",
     "node-sass": "^4.12.0",
