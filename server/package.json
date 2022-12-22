@@ -17,7 +17,7 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "faker": "^4.1.0",
-    "jsonwebtoken": "^8.2.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.0.14",
     "mongoose-algolia": "^1.7.1",
     "mongoose-deep-populate": "^3.1.1",
